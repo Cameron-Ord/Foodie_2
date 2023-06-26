@@ -106,6 +106,7 @@ import Cookies from 'vue-cookies';
                 }).then((response)=>{
                  
                     response;
+                    
                 Cookies.remove(`food_cart`);
 
                 this.$router.push(`/AccountProfile`);

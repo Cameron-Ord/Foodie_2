@@ -62,13 +62,6 @@ import Cookies from 'vue-cookies';
 
                     url: `${process.env.VUE_APP_BASE_DOMAIN}/api/client-login`,
 
-                    headers:{
-
-
-                        'x-api-key': `qK2iR1gTkkAjPH0kfGDY`
-
-                    },
-
                     data:{
 
                         email: this.$refs[`email_input`].value,
@@ -80,11 +73,11 @@ import Cookies from 'vue-cookies';
 
                     //if axios post is successful, assigns respective tokens to a cookie, and removes possible existing tokens..//
 
-                    response;
+                    console.log(response);
 
-                    Cookies.set(`client_login_token`, `${response[`data`][`token`]}`);
+                    Cookies.set(`client_login_token`, `${response[`data`][0][`token`]}`);
 
-                    Cookies.set(`client_id_token`, `${response[`data`][`client_id`]}`);
+                    Cookies.set(`client_id_token`, `${response[`data`][0][`client_id`]}`);
 
                     Cookies.remove(`rest_login_token`);
 
@@ -106,6 +99,11 @@ import Cookies from 'vue-cookies';
                 });
             }
         },
+
+        mounted(){
+
+            console.log(process.env.VUE_APP_BASE_DOMAIN);
+        }
 
     }
 </script>
