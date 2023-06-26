@@ -53,7 +53,7 @@ import Cookies from 'vue-cookies';
 
                     method: `POST`,
 
-                    url: `https://foodie.bymoen.codes/api/restaurant-login`,
+                    url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant-login`,
 
                     headers:{
 

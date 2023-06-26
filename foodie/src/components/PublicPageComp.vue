@@ -117,7 +117,7 @@ export default {
 
                     method: `GET`,
 
-                    url: `https://foodie.bymoen.codes/api/restaurant`,
+                    url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant`,
 
                     headers:{
 
@@ -157,7 +157,7 @@ export default {
 
                 method: `GET`,
 
-                url: `https://foodie.bymoen.codes/api/menu`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/menu`,
 
                 
                     headers:{

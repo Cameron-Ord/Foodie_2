@@ -64,7 +64,7 @@ export default {
 
                 method: `POST`,
 
-                url: `https://foodie.bymoen.codes/api/client`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/client`,
 
                 headers: {
 

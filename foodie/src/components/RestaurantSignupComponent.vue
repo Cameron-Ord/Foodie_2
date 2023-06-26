@@ -65,7 +65,7 @@ import Cookies from 'vue-cookies';
 
             axios({
 
-                url: `https://foodie.bymoen.codes/api/restaurant`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant`,
 
                 headers: {
 

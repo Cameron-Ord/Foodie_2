@@ -86,7 +86,7 @@ import Cookies from 'vue-cookies';
 
                     method:`POST`,
 
-                    url:`https://foodie.bymoen.codes/api/client-order`,
+                    url:`${process.env.VUE_APP_BASE_DOMAIN}/api/client-order`,
 
                     headers:{
 

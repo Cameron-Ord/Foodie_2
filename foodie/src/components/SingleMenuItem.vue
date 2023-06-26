@@ -125,7 +125,7 @@ export default {
 
                 method: `DELETE`,
 
-                url: `https://foodie.bymoen.codes/api/menu`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/menu`,
 
                 headers: {
 
@@ -178,7 +178,7 @@ export default {
 
                 method: `PATCH`,
 
-                url: `https://foodie.bymoen.codes/api/menu`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/menu`,
 
                 headers: {
 
@@ -239,7 +239,7 @@ export default {
 
                 method: `PATCH`,
 
-                url: `https://foodie.bymoen.codes/api/menu`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/menu`,
 
                 headers: {
 
@@ -297,7 +297,7 @@ export default {
 
                 method: `PATCH`,
 
-                url: `https://foodie.bymoen.codes/api/menu`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/menu`,
 
                 headers: {
 
@@ -356,7 +356,7 @@ export default {
 
                 method: `PATCH`,
 
-                url: `https://foodie.bymoen.codes/api/menu`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/menu`,
 
                 headers: {
 
@@ -407,7 +407,7 @@ export default {
 
                 method: `GET`,
 
-                url: `https://foodie.bymoen.codes/api/menu`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/menu`,
 
                 headers: {
 

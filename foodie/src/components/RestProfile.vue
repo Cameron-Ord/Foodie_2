@@ -310,7 +310,7 @@ export default {
 
                 method: `PATCH`,
 
-                url: `https://foodie.bymoen.codes/api/restaurant-order`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant-order`,
 
                 headers: {
 
@@ -356,7 +356,7 @@ export default {
 
                 method: `PATCH`,
 
-                url: `https://foodie.bymoen.codes/api/restaurant-order`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant-order`,
 
                 headers: {
                     'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
@@ -403,7 +403,7 @@ export default {
 
                 method: `DELETE`,
 
-                url: `https://foodie.bymoen.codes/api/restaurant`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant`,
 
                 headers: {
 
@@ -441,7 +441,7 @@ export default {
 
                 method: `PATCH`,
 
-                url: `https://foodie.bymoen.codes/api/restaurant`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant`,
 
                 headers: {
 
@@ -476,7 +476,7 @@ export default {
 
                 method: `PATCH`,
 
-                url: `https://foodie.bymoen.codes/api/restaurant`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}api/restaurant`,
 
                 headers: {
 
@@ -511,7 +511,7 @@ export default {
 
                 method: `PATCH`,
 
-                url: `https://foodie.bymoen.codes/api/restaurant`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant`,
 
                 headers: {
 
@@ -546,7 +546,7 @@ export default {
 
                 method: `PATCH`,
 
-                url: `https://foodie.bymoen.codes/api/restaurant`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant`,
 
                 headers: {
 
@@ -582,7 +582,7 @@ export default {
 
                 method: `PATCH`,
 
-                url: `https://foodie.bymoen.codes/api/restaurant`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant`,
 
                 headers: {
 
@@ -629,7 +629,7 @@ export default {
             method: `GET`,
 
 
-            url: `https://foodie.bymoen.codes/api/restaurant`,
+            url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant`,
 
 
             headers: {
@@ -675,7 +675,7 @@ export default {
 
             method: `GET`,
 
-            url: `https://foodie.bymoen.codes/api/restaurant-order`,
+            url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant-order`,
 
             headers: {
 
@@ -727,7 +727,7 @@ export default {
 
             method: `GET`,
 
-            url: `https://foodie.bymoen.codes/api/restaurant-order`,
+            url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant-order`,
 
             headers: {
 
@@ -777,7 +777,7 @@ export default {
 
             method: `GET`,
 
-            url: `https://foodie.bymoen.codes/api/restaurant-order`,
+            url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant-order`,
 
             headers: {
 
