@@ -97,6 +97,7 @@ import PageFooter from '@/components/PageFooter.vue';
             }).then((response)=>{
 
                 response;
+                console.log(response);
 
                 for(let i = 0; i < response[`data`].length; i = i +1){
 
