@@ -395,8 +395,6 @@ export default {
         delete_account() {
 
             let restaurant_token = Cookies.get(`rest_login_token`);
-    
-            console.log(this.refs[`delete_acc`][`value`]);
 
             console.log(restaurant_token);
             axios({
@@ -406,9 +404,6 @@ export default {
                 url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant`,
 
                 headers: {
-
-
-                    'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
 
                     token: restaurant_token,
                 },
@@ -421,7 +416,10 @@ export default {
 
             }).then((response) => {
 
-                response;
+                console.log(response);
+                Cookies.remove('restaurant_id');
+                Cookies.remove('rest_login_token');
+                this.$router.push('/');
 
             }).catch((error) => {
 
