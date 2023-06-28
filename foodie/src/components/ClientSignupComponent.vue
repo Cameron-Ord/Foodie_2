@@ -66,12 +66,6 @@ export default {
 
                 url: `${process.env.VUE_APP_BASE_DOMAIN}/api/client`,
 
-                headers: {
-
-                    'x-api-key': `qK2iR1gTkkAjPH0kfGDY`
-
-                },
-
                 data: {
 
                     //grabbing values from input tags//

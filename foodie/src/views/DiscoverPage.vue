@@ -72,7 +72,9 @@ import PageFooter from '@/components/PageFooter.vue';
 
                 let restaurant = this.restaurants[button_clicker];
 
-                Cookies.set(`restaurant_selected`, restaurant[`restaurant_id`]);
+                console.log(restaurant['id'])
+
+                Cookies.set(`restaurant_selected`, restaurant[`id`]);
 
                 this.$router.push(`/PublicPage`);
 
@@ -89,10 +91,7 @@ import PageFooter from '@/components/PageFooter.vue';
 
                 url:`${process.env.VUE_APP_BASE_DOMAIN}/api/restaurants`,
 
-                headers:{
 
-                    'x-api-key': `qK2iR1gTkkAjPH0kfGDY`
-                },
 
             }).then((response)=>{
 

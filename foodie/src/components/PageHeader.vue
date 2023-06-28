@@ -124,29 +124,27 @@ export default {
 
             this.client_logged_in = true;
 
-            console.log(this.client_logged_in, `client logged`);
         }
       
 
         if(this.client_token === null){
 
             this.client_logged_in = false;
-            console.log(this.client_logged_in, `client not logged`);
+       
         } 
         
         if(this.partner_token !== null){
          
             this.partner_logged_in = true;
 
-            console.log(this.partner_logged_in,`partner logged`);
+          
 
         } 
         
         if(this.partner_token === null){
 
             this.partner_logged_in = false;
-       
-            console.log(this.partner_logged_in,`partner not logged`);
+
         }
 
 

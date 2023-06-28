@@ -157,7 +157,7 @@ export default {
 
             let order_ids = [];
 
-            console.log(order_ids, sorted_orders);
+           
 
             for(let i = 0; i<this.unsort_completed_orders.length; i++){
 
@@ -187,7 +187,7 @@ export default {
 
             let order_ids = [];
 
-            console.log(order_ids, sorted_orders);
+           
 
             for(let i = 0; i<this.unsort_incomplete_orders.length; i++){
 
@@ -306,8 +306,6 @@ export default {
 
                 headers: {
 
-                    'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
-
                     token: client_token,
 
                 },
@@ -341,7 +339,7 @@ export default {
 
                 headers: {
 
-                    'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
+
 
                     token: client_token,
 
@@ -429,8 +427,6 @@ export default {
 
                 headers: {
 
-                    'x-api-key': `qK2iR1gTkkAjPH0kfGDY`
-
                 },
 
                 params: {
@@ -462,21 +458,22 @@ export default {
 
             headers: {
 
-                'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
-
                 token: client_token
 
             },
 
             params: {
 
-                is_complete: `false`
+                is_confirmed: 1,
+                is_complete: 0,
+               
             }
 
 
         }).then((response) => {
 
-        response;
+        
+            response;
 
             
             for (let i = 0; i < response[`data`].length; i++) {
@@ -512,7 +509,6 @@ export default {
 
             headers: {
 
-                'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
 
                 token: client_token
 
@@ -520,7 +516,8 @@ export default {
 
             params: {
 
-                is_complete: "true"
+                is_confirmed: 1,
+                is_complete: 1
             }
 
 

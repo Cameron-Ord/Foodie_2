@@ -90,7 +90,8 @@ import Cookies from 'vue-cookies';
 
             }).then((response) => {
 
-                console.log(response);
+               
+                response;
 
                 //assigns cookies and pushes to main page//
 

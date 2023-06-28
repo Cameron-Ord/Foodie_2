@@ -94,6 +94,8 @@ export default {
 
                 this.menu_items.push(menu_item);
 
+            
+
                 Cookies.set(`food_cart`, this.menu_items);
 
               
@@ -119,10 +121,6 @@ export default {
 
                     url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant`,
 
-                    headers:{
-
-                        'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
-                    },
 
                     params:{
 
@@ -132,6 +130,9 @@ export default {
 
 
                 }).then((response)=>{
+
+          
+                    response;
 
  
                     this.restaurant_object = response[`data`][0];
@@ -160,11 +161,6 @@ export default {
                 url: `${process.env.VUE_APP_BASE_DOMAIN}/api/menu`,
 
                 
-                    headers:{
-
-                        'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
-                    },
-
                     params:{
 
                         restaurant_id: chosen_restaurant_id

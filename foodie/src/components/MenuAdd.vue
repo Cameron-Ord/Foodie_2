@@ -46,8 +46,6 @@ import Cookies from 'vue-cookies';
 
             let rest_id_value = Cookies.get(`restaurant_id`);
 
-            console.log(this.$refs[`Name_Box_Add`][`value`]);
-
             if (rest_id_value !== undefined) {
 
                 axios({

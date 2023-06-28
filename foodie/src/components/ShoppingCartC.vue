@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="shopping_cart_items !== null">
 
         <main class="page_main">
 
@@ -74,13 +74,7 @@ import Cookies from 'vue-cookies';
                 let rest_id_var = Cookies.get(`restaurant_selected`);
 
                 let menu_item_no = this.product_id;
-               
-                console.log(this.product_id);
-
-                console.log(token_var , `token`);
-
-           
-            
+        
                 
                 axios({
 
@@ -90,7 +84,7 @@ import Cookies from 'vue-cookies';
 
                     headers:{
 
-                        'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
+                 
 
                         token: token_var,
 
@@ -131,7 +125,7 @@ import Cookies from 'vue-cookies';
             //defining variables on mount//
 
             this.shopping_cart_items = Cookies.get(`food_cart`);
-            console.log(this.shopping_cart_items, `cart`);
+           
         
 
             for(let i = 0; i < this.shopping_cart_items.length; i++){
@@ -140,7 +134,6 @@ import Cookies from 'vue-cookies';
 
             }
 
-            console.log(this.product_id);
 
         }
     }

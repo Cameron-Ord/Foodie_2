@@ -211,8 +211,6 @@ export default {
 
             let order_ids = [];
 
-            console.log(order_ids, sorted_orders);
-
             for(let i = 0; i<this.unsort_unconfirmed_orders.length; i++){
 
                 let indexed = order_ids.findIndex((order_id) => order_id === this.unsort_unconfirmed_orders[i][`order_id`]);
@@ -241,7 +239,7 @@ export default {
 
             let order_ids = [];
 
-            console.log(this.unsort_confirmed_orders, `unsort`);
+           
 
             for(let i = 0; i<this.unsort_confirmed_orders.length; i++){
 
@@ -259,7 +257,6 @@ export default {
 
                 this.sort_confirmed_orders = sorted_orders;
 
-                console.log(this.sort_confirmed_orders, `confirmed`);
              
             }
 
@@ -271,7 +268,7 @@ export default {
 
             let order_ids = [];
 
-            console.log(order_ids, sorted_orders);
+        
 
             for(let i = 0; i<this.unsort_completed_orders.length; i++){
 
@@ -396,7 +393,7 @@ export default {
 
             let restaurant_token = Cookies.get(`rest_login_token`);
 
-            console.log(restaurant_token);
+         
             axios({
 
                 method: `DELETE`,
@@ -416,7 +413,7 @@ export default {
 
             }).then((response) => {
 
-                console.log(response);
+                response;
                 Cookies.remove('restaurant_id');
                 Cookies.remove('rest_login_token');
                 this.$router.push('/');

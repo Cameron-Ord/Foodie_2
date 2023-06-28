@@ -55,13 +55,6 @@ import Cookies from 'vue-cookies';
 
                     url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant-login`,
 
-                    headers:{
-
-
-                        'x-api-key': `qK2iR1gTkkAjPH0kfGDY`
-
-                    },
-
                     data:{
 
                         email: this.$refs[`email_input`].value,

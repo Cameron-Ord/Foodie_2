@@ -173,7 +173,7 @@ export default {
 
 
 
-            console.log(name_input_value);
+            
             axios({
 
                 method: `PATCH`,
@@ -203,7 +203,7 @@ export default {
 
                 response;
 
-                console.log(response);
+              
 
 
             }).catch((error) => {
@@ -234,7 +234,7 @@ export default {
 
 
 
-            console.log(desc_input_value);
+         
             axios({
 
                 method: `PATCH`,
@@ -262,9 +262,7 @@ export default {
 
                 response;
 
-                console.log(response);
-
-
+                
             }).catch((error) => {
 
                 error;
@@ -290,9 +288,6 @@ export default {
 
             let image_input_value = image_input[`value`];
 
-
-
-            console.log(image_input_value);
             axios({
 
                 method: `PATCH`,
@@ -321,7 +316,7 @@ export default {
 
                 response;
 
-                console.log(response);
+              
 
 
             }).catch((error) => {
@@ -351,7 +346,7 @@ export default {
             let price_input_value = price_input[`value`];
 
 
-            console.log(price_input_value);
+          
             axios({
 
                 method: `PATCH`,
@@ -380,7 +375,7 @@ export default {
 
                 response;
 
-                console.log(response);
+               
 
 
             }).catch((error) => {
@@ -400,7 +395,7 @@ export default {
 
             //axios call for menu on mount//
 
-            console.log(this.j);
+            
             let rest_id_value = Cookies.get(`restaurant_id`);
 
             axios({
@@ -446,7 +441,7 @@ export default {
 
             });
 
-            console.log(this.menu_get_holder);
+ 
 
         }
     }
