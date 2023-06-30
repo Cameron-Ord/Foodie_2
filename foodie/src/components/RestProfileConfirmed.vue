@@ -113,8 +113,6 @@ export default {
 
                 is_confirmed: 1,
 
-                is_complete: 0
-
 
             }
 

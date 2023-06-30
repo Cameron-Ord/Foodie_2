@@ -53,7 +53,8 @@ import Cookies from 'vue-cookies';
             params: {
 
 
-                is_complete: "true",
+                is_complete: 1,
+                is_confirmed: 1
 
 
             }

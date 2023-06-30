@@ -68,7 +68,7 @@ import Cookies from 'vue-cookies';
         },
 
     
-            get_order(){
+        get_order(){
 
 
         let client_token = Cookies.get(`client_login_token`);
@@ -90,7 +90,6 @@ import Cookies from 'vue-cookies';
             params: {
 
                 is_confirmed: 0,
-                is_complete: 0,
                
             }
 

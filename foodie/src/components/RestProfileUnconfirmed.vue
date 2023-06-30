@@ -71,7 +71,7 @@ import Cookies from 'vue-cookies';
                     order_id: confirmed_item,
 
                     is_confirmed: 1,
-                    is_complete: 0
+                 
 
 
                 },

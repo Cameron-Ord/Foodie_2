@@ -15,6 +15,9 @@
                 <client-profile-incomplete></client-profile-incomplete>
             </article>
             <article>
+                <client-profile-confirmed></client-profile-confirmed>
+            </article>
+            <article>
                 <client-profile-complete></client-profile-complete>
             </article>
             <article>
@@ -74,6 +77,7 @@ import ClientProfileComplete from '@/components/ClientProfileComplete.vue';
 import ClientProfileIncomplete from '@/components/ClientProfileIncomplete.vue';
 import ClientProfileChangeInfo from '@/components/ClientProfileChangeInfo.vue';
 import ClientProfileInfo from '@/components/ClientProfileInfo.vue';
+import ClientProfileConfirmed from '@/components/ClientProfileConfirmed.vue';
 import PageFooter from '@/components/PageFooter.vue';
 import Cookies from 'vue-cookies';
     export default {
@@ -94,7 +98,8 @@ import Cookies from 'vue-cookies';
             ClientProfileComplete,
             ClientProfileIncomplete,
             ClientProfileChangeInfo,
-            ClientProfileInfo
+            ClientProfileInfo,
+            ClientProfileConfirmed
         },
 
         data() {
