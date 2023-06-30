@@ -128,21 +128,40 @@ export default {
     align-items: center;
     grid-template-rows: 8vh 6vh 8vh;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     background-color: #003F91;
-    width: 90%;
+    width: 80%;
     border-radius: 10px;
     color: #FFFFFF;
 }
 @media only screen and (min-width: 770px){
 
+.parent{
 
+
+}
+.span_1>button{
+
+}
+.span_1{
+
+}
 
 }
 
 
 @media only screen and (min-width: 1025px){
 
+.parent{
+
+
+}
+.span_1>button{
+
+}
+.span_1{
+width: 60%;
+}
 
     
 }

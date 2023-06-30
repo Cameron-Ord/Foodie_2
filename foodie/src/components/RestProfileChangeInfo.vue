@@ -2,7 +2,10 @@
     <div class="parent">
         <span class="span_2">
 
+        <span class="special_span">
         <h1>Edit your profile:</h1>
+        </span> 
+    
         <div>
         <p class="p_tag_highlight">Change business email:</p>
         <input placeholder="enter a new email" type="text" ref="change_email">
@@ -235,21 +238,20 @@ import Cookies from 'vue-cookies';
     display: grid;
     justify-items: center;
     align-items: center;
+    width: 100%;
 }
 
 .span_2{
 
     display: grid;
 
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 10vh 1fr 1fr 1fr 1fr 1fr;
 
     align-items: center;
     
     justify-items: center;
 
     text-align: center;
-
-    background-color: #003F91;
 
     width: 80%;
 
@@ -259,14 +261,30 @@ import Cookies from 'vue-cookies';
     
     margin-bottom: 10px;
 }
+
+.special_span{
+
+    background-color: #003F91;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    width: 80%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 10px;
+}
 .span_2>div{
     display: grid;
     align-items: center;
     justify-items: center;
     text-align: center;
     grid-template-rows: 10vh 6vh 10vh;
-
+    background-color: #003F91;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
     color: #FFFFFF;
+    border-radius: 10px;
 
 }
 
@@ -286,14 +304,54 @@ import Cookies from 'vue-cookies';
 }
 @media only screen and (min-width: 770px){
 
+.parent{
 
+}
+
+.span_2{
+
+
+}
+.span_2>div{
+
+
+}
+
+.span_2>div>button{
+
+
+}
+
+.p_tag_highlight{
+
+}
 
 }
 
 
 @media only screen and (min-width: 1025px){
 
+.parent{
 
+}
+
+.span_2{
+
+width: 70%;
+}
+.span_2>div{
+
+
+}
+
+.span_2>div>button{
+
+
+}
+
+.p_tag_highlight{
+
+}
     
 }
 </style>

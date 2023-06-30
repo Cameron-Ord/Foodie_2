@@ -1,5 +1,10 @@
 <template>
     <!--an if statement that protects the html-->
+    <div class="parent">
+
+        <div class="header_div">
+            <h2>View and modify your menu items</h2>
+        </div>
 
         <div v-if="j !== undefined && menu_get_holder !== undefined" class="parent_div"> 
 
@@ -57,6 +62,7 @@
             
             </article>
         </div>
+    </div>
 </template>
 
 <script>
@@ -451,6 +457,30 @@ export default {
 
 <style scoped>
 
+.parent{
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.header_div{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+
+.header_div>h2{
+    color: #FFFFFF;
+    background-color: #003F91;
+    padding: 10px;
+    border-radius: 10px;
+    width: 85%;
+}
+
 .parent_div{
     display: grid;
     justify-items: center;
@@ -474,10 +504,11 @@ border-radius: 10px;
 padding: 10px;
 }
 .span_1>img{
-    width: 75%;
-    height: 75%;
+    width: 50%;
+    margin-top: 20px;
+    height: auto;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 10px;
 
     color: #003F91;
     border-width: 10px;
@@ -490,6 +521,9 @@ padding: 10px;
     grid-template-columns: 1fr 1fr;
     margin-top: 10px;
     margin-bottom: 10px;
+    background-color: #003F91;
+    width: 70%;
+    border-radius: 10px;
 }
 
 .span_2>button{
@@ -500,6 +534,7 @@ padding: 10px;
     color: #003F91;
     padding: 10px;
 
+    width: 80%;
     margin-top: 15px;
     margin-bottom: 15px;
     border-radius: 5px;
@@ -559,6 +594,7 @@ border-radius: 10px;
     width: 70%;
     background-color: #003F91;
     padding-top: 10px;
+    margin-top: 10px;
     padding-bottom: 10px;
     border-radius: 10px;
 
@@ -580,13 +616,135 @@ border-radius: 10px;
 @media only screen and (min-width: 770px){
 
 
+.parent{
+
+
+}
+
+.header_div{
+
+}
+
+.header_div>h2{
+
+}
+
+
+.parent_div{
+
+}
+
+.span_1{
+
+}
+.span_1>h2{
+
+}
+.span_1>img{
+
+}
+.span_2{
+
+}
+
+.span_2>button{
+
+}
+.span_3{
+
+
+
+}
+.span_3>div{
+
+
+}
+
+.span_3>div>button{
+}
+
+.text_decor{
+
+
+}
+.delete_div{
+
+
+
+}
+.delete_div>button{
+
+
+
+
+}
+
 
 }
 
 
 @media only screen and (min-width: 1025px){
 
+.parent{
 
+
+}
+
+.header_div{
+
+}
+
+.header_div>h2{
+width: 100%;
+}
+.parent_div{
+
+}
+
+.span_1{
+
+}
+.span_1>h2{
+
+}
+.span_1>img{
+width: 25%;
+}
+.span_2{
+
+}
+
+.span_2>button{
+
+}
+.span_3{
+
+
+
+}
+.span_3>div{
+
+
+}
+
+.span_3>div>button{
+}
+
+.text_decor{
+
+
+}
+.delete_div{
+
+
+
+}
+.delete_div>button{
+
+
+
+
+}
     
 }
 </style>

@@ -3,14 +3,20 @@
         <page-header></page-header>
     <!--if variable is not null, it shows the page.-->
 
-    <main v-if="(client_data !== null) && (rest_data === null)">
+    <main v-if="(client_data !== null) && (rest_data === null)" class="main_page">
         <section>
+            <div>
             <article>
                 <client-profile-info></client-profile-info>
             </article>
             <article>
                 <client-profile-change-info></client-profile-change-info>
             </article>
+            <article>
+                <client-profile-delete></client-profile-delete>
+            </article>
+            </div>
+            <div>
             <article>
                 <client-profile-incomplete></client-profile-incomplete>
             </article>
@@ -20,13 +26,13 @@
             <article>
                 <client-profile-complete></client-profile-complete>
             </article>
-            <article>
-                <client-profile-delete></client-profile-delete>
-            </article>
+            </div>
+
         </section>
     </main>
-    <main v-if="(rest_data !==null) && (client_data === null)">
+    <main v-if="(rest_data !==null) && (client_data === null)" class="main_page">
         <section>
+            <div>
             <article>
                 <rest-profile-info></rest-profile-info>
             </article>
@@ -40,6 +46,11 @@
                 <single-menu-item></single-menu-item>
             </article>
             <article>
+                <rest-profile-delete></rest-profile-delete>
+            </article>
+            </div>
+            <div>
+            <article>
                 <rest-profile-unconfirmed></rest-profile-unconfirmed>
             </article>
             <article>
@@ -48,9 +59,9 @@
             <article>
                 <rest-profile-complete></rest-profile-complete>
             </article>
-            <article>
-                <rest-profile-delete></rest-profile-delete>
-            </article>
+            </div>
+
+
 
         </section>
     </main>
@@ -130,5 +141,57 @@ import Cookies from 'vue-cookies';
 </script>
 
 <style scoped>
+.main_page{
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    width: 100%;
+}
+
+.main_page>section{
+    width: 100%;
+}
+
+
+@media only screen and (min-width: 770px){
+
+.main_page{
+
+
+
+grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+
+}
+
+.main_page>section{
+
+}
+
+
+}
+
+
+@media only screen and (min-width: 1025px){
+
+.main_page{
+
+
+
+grid-template-columns: repeat(auto-fit, minmax(770px, 1fr));
+
+}
+
+.main_page>section{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+    
+}
 
 </style>

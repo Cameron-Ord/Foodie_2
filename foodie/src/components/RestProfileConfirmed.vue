@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <article class="confirmed_orders" v-if="sort_confirmed_orders !== undefined">
+    <div class="parent">
+        <div class="confirmed_orders" v-if="sort_confirmed_orders !== undefined">
 
         <h1>Confirmed Orders:</h1>
 
@@ -16,7 +16,7 @@
         <button :clicked_complete="i" @click="complete_order" ref="completed_order">Complete Order</button>
         </span>
 
-        </article>
+    </div>
     </div>
 </template>
 
@@ -112,6 +112,7 @@ export default {
             params: {
 
                 is_confirmed: 1,
+                is_complete: 0
 
 
             }
@@ -182,6 +183,61 @@ export default {
 }
 </script>
 <style scoped>
+.parent{
+
+    display: grid;
+
+    justify-items: center;
+
+    align-items: center;
+
+    width: 100%;
+}
+
+.confirmed_orders{
+
+    display: grid;
+
+    color: #FFFFFF;
+
+    justify-items: center;
+
+    align-items: center;
+
+    width: 100%;
+}
+
+.confirmed_orders>span{
+
+    background-color: #003F91;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    grid-auto-flow: row;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.confirmed_orders>span>div>h1{
+
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+}
+.confirmed_orders>span>button{
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    color: #003F91;
+    border-radius: 10px;
+}
 @media only screen and (min-width: 770px){
 
 

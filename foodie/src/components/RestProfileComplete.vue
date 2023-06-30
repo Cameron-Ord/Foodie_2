@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="parent">
 
-        <article class="completed_orders" v-if="sort_completed_orders !== undefined">
+        <div class="completed_orders" v-if="sort_completed_orders !== undefined">
 
         <h1>Completed Orders:</h1>
 
@@ -10,7 +10,7 @@
         <h1>ORDER: {{ completed[0][`order_id`] }}</h1>
 
         </span>
-        </article>
+    </div>
     </div>
 </template>
 
@@ -54,8 +54,6 @@ import Cookies from 'vue-cookies';
 
 
                 is_complete: 1,
-                is_confirmed: 1
-
 
             }
 
@@ -120,6 +118,47 @@ import Cookies from 'vue-cookies';
     }
 </script>
 <style scoped>
+.parent{
+
+display: grid;
+
+justify-items: center;
+
+align-items: center;
+
+width: 100%;
+}
+
+.completed_orders{
+
+display: grid;
+
+color: #FFFFFF;
+
+justify-items: center;
+
+align-items: center;
+
+width: 100%;
+}
+
+.completed_orders>span{
+
+background-color: #003F91;
+display: grid;
+align-items: center;
+justify-items: center;
+text-align: center;
+width: 80%;
+margin-top: 10px;
+margin-bottom: 10px;
+grid-auto-flow: row;
+padding-top: 10px;
+padding-bottom: 10px;
+border-radius: 10px;
+}
+
+
 @media only screen and (min-width: 770px){
 
 

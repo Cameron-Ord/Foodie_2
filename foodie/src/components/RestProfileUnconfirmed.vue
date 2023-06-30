@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <span class="incoming_orders" v-if="sort_unconfirmed_orders !== undefined">
+    <div class="parent">
+        <div class="incoming_orders" v-if="sort_unconfirmed_orders !== undefined">
 
         <h1>Incoming Orders:</h1>
 
@@ -18,7 +18,7 @@
         <button :clicked_confirm="i" @click="confirm_order" ref="confirmed_order">Confirm Order</button>
 
         </div>
-    </span>
+    </div>
 
     </div>
 </template>
@@ -177,7 +177,66 @@ import Cookies from 'vue-cookies';
     }
 </script>
 
+
 <style scoped>
+
+
+.parent{
+
+display: grid;
+
+justify-items: center;
+
+align-items: center;
+
+width: 100%;
+}
+
+.incoming_orders{
+
+display: grid;
+
+color: #FFFFFF;
+
+justify-items: center;
+
+align-items: center;
+
+width: 100%;
+}
+
+.incoming_orders>div{
+
+background-color: #003F91;
+display: grid;
+align-items: center;
+justify-items: center;
+text-align: center;
+width: 80%;
+margin-top: 10px;
+margin-bottom: 10px;
+grid-auto-flow: row;
+padding-top: 10px;
+padding-bottom: 10px;
+border-radius: 10px;
+}
+
+.incoming_orders>div>div>h1{
+
+margin-top: 3px;
+margin-bottom: 3px;
+
+}
+.incoming_orders>div>button{
+
+margin-top: 5px;
+margin-bottom: 5px;
+padding: 10px;
+background-color: #FFFFFF;
+color: #003F91;
+border-radius: 10px;
+}
+
 @media only screen and (min-width: 770px){
 
 

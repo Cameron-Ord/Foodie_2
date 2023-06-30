@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="parent"> 
         <span class="completed" v-if="sort_completed_orders !== undefined">
 
         <h1>Order History:</h1>
@@ -7,11 +7,6 @@
         <div class="comp_order" v-for="(order, i) in sort_completed_orders" :key="i">
 
         <h1>ORDER: {{ order[0][`order_id`] }}</h1>
-
-        <div v-for="(item, j) in order" :key="j">
-
-        <h4>{{ item.name }} - ${{ item.price }}</h4>
-        </div>
         </div>
         </span>
     </div>
@@ -124,7 +119,86 @@ import Cookies from 'vue-cookies';
     }
 </script>
 <style scoped>
+.parent{
+    justify-items: center;
+    align-items: center;
+    display: grid;
+
+}
+
+.completed{
+    justify-items: center;
+    align-items: center;
+    display: grid;
+    background-color: #003F91;
+    color: #FFFFFF;
+    width: 80%;
+    grid-auto-flow: row;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.completed>h1{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.comp_order{
+    justify-items: center;
+    align-items: center;
+    display: grid;
+    grid-auto-flow: row;
+
+}
+
+.comp_order>h1{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.comp_order>div{
+
+    justify-items: center;
+    align-items: center;
+    display: grid;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+
 @media only screen and (min-width: 770px){
+    .parent{
+    justify-items: center;
+    align-items: center;
+    display: grid;
+
+}
+
+.completed{
+
+}
+
+.completed>h1{
+
+}
+
+.comp_order{
+
+
+}
+
+.comp_order>h1{
+
+}
+
+.comp_order>div{
+
+
+}
 
 
 
@@ -132,7 +206,27 @@ import Cookies from 'vue-cookies';
 
 
 @media only screen and (min-width: 1025px){
+.completed{
 
+}
+
+.completed>h1{
+
+}
+
+.comp_order{
+
+
+}
+
+.comp_order>h1{
+
+}
+
+.comp_order>div{
+
+
+}
 
     
 }

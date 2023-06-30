@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="parent">
         <!--displaying orders based on a condition and whether they have been completed or not-->
 
         <span v-if="sort_incomplete_orders !== undefined" class="incomp">
 
-            <h1>Current Orders:</h1>
+            <h1>Pending Orders:</h1>
 
         <div class="incomp_order" v-for="(order, i) in sort_incomplete_orders" :key="i">
 
@@ -90,6 +90,7 @@ import Cookies from 'vue-cookies';
             params: {
 
                 is_confirmed: 0,
+                is_complete : 0
                
             }
 
@@ -137,16 +138,119 @@ import Cookies from 'vue-cookies';
     }
 </script>
 <style scoped>
+
+.parent{
+    justify-items: center;
+    align-items: center;
+    display: grid;
+
+}
+
+.incomp{
+    justify-items: center;
+    align-items: center;
+    display: grid;
+    background-color: #003F91;
+    color: #FFFFFF;
+    width: 80%;
+    grid-auto-flow: row;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+}
+
+.incomp>h1{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.incomp_order{
+    justify-items: center;
+    align-items: center;
+    display: grid;
+    grid-auto-flow: row;
+
+}
+
+.incomp_order>h1{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.incomp_order>div{
+
+    justify-items: center;
+    align-items: center;
+    display: grid;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
 @media only screen and (min-width: 770px){
 
 
+.parent{
 
+
+}
+
+.incomp{
+
+
+}
+
+.incomp>h1{
+
+}
+
+.incomp_order{
+
+
+}
+
+.incomp_order>h1{
+
+}
+
+.incomp_order>div{
+
+
+}
 }
 
 
 @media only screen and (min-width: 1025px){
 
+.parent{
 
+
+}
+
+.incomp{
+
+
+}
+
+.incomp>h1{
+
+}
+
+.incomp_order{
+
+
+}
+
+.incomp_order>h1{
+
+}
+
+.incomp_order>div{
+
+
+}
     
 }
 </style>
