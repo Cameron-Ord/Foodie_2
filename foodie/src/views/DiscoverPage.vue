@@ -7,11 +7,11 @@
 
         <main class="page_main">
             <section class="section_main">
-                <article class="page_article_1">
+                <article class="page_article_1" v-for="(restaurant, i) in restaurants" :key="i">
 
                     <!--a loop for all the restaurants stored in the restaurants variable-->
 
-                    <span class="rest_span" v-for="(restaurant, i) in restaurants" :key="i"> 
+                    <span class="rest_span"> 
 
                         <h1 class="rest_name">{{ restaurant[`name`] }}</h1>
 
@@ -142,6 +142,8 @@ import PageFooter from '@/components/PageFooter.vue';
     justify-items: center;
     
     align-items: center;
+    
+    grid-template-columns: 1fr 1fr 1fr;
 
     width: 100%;
 }
@@ -154,7 +156,7 @@ import PageFooter from '@/components/PageFooter.vue';
     
     align-items: center;
 
-    grid-auto-flow: row;
+  
 
         width: 100%;
 }

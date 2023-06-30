@@ -1,23 +1,33 @@
 <template>
-                    <span class="span_1">
+        <div class="parent">
+            <span class="span_1">
 
-                        <h1>Add, modify, or remove your menu items:</h1>
+                <h1>Add, modify, or remove your menu items:</h1>
 
-                        <!--inputs for adding products-->
+                <!--inputs for adding products-->
 
-                        <p>Name:</p>
-                        <input type="text" ref="Name_Box_Add">
-                        <p>Description:</p>
-                        <input type="text" ref="Desc_Box_Add">
-                        <p>Image:</p>
-                        <input type="text" ref="Image_Box_Add">
-                        <p>Price:</p>
-                        <input type="text" ref="Price_Box_Add">
+                <div>
+                <p>Name:</p>
+                <input type="text" ref="Name_Box_Add">
+                </div>
+                <div>
+                <p>Description:</p>
+                <input type="text" ref="Desc_Box_Add">
+                </div>
+                <div>
+                <p>Image:</p>
+                <input type="text" ref="Image_Box_Add">
+                </div>
+                <div>
+                <p>Price:</p>
+                <input type="text" ref="Price_Box_Add">
+                </div>
+                
+                <button @click="add_product">Add</button>
 
-                        <button @click="add_product">Add</button>
 
-
-                    </span>
+            </span>
+        </div>
 </template>
 
 <script>
@@ -99,6 +109,53 @@ import Cookies from 'vue-cookies';
 
 
 <style scoped>
+.parent{
+    display: grid;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+}
+
+.span_1{
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 80%;
+    background-color: #003F91;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+    color: #FFFFFF;
+}
+
+.span_1>button{
+    background-color: #FFFFFF;
+    color: #003F91;
+    padding: 10px;
+    width: 25%;
+}
+.span_1>h1{
+
+    width: 90%;
+}
+.span_1>div{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-rows: 8vh 8vh;
+
+}
+
+.span_1>div>p{
+    color: #003F91;
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px;
+}
 @media only screen and (min-width: 770px){
 
 

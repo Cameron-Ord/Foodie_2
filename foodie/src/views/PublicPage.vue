@@ -68,6 +68,8 @@ import PageFooter from '@/components/PageFooter.vue';
     justify-items: center;
 
     align-items: center;
+
+    width: 100%;
 }
 
 @media only screen and (min-width: 770px){

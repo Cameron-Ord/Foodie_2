@@ -8,7 +8,7 @@
 
                     <h1>{{ restaurant_object[`name`] }}</h1>
 
-                    <img :src="restaurant_object[`profile_url`]">
+                    <img :src="restaurant_object[`banner_url`]" class="image_div">
 
                 </div>
 
@@ -33,11 +33,12 @@
 
         </div>
 
-        <article class="article_2">
+        <div class="loop_div">
+        <article class="article_2" v-for="(menu_item, i) in rest_menu" :key="i">
 
             <!--same operation as getting the restaurant info from axios, but with the menu-->
 
-            <span class="span_menu" v-for="(menu_item, i) in rest_menu" :key="i">
+            <span class="span_menu">
 
                 <h4>{{ menu_item[`name`] }}</h4>
 
@@ -50,7 +51,7 @@
             </span>
 
         </article>
-
+        </div>
         <!--if the food cart variable is not null, display-->
 
         <article class="article_3" v-if="food_cart !== null && client !==null">
@@ -199,6 +200,8 @@ export default {
 
     display: grid;
 
+    width: 100%;
+
     grid-auto-flow: row;
 }
 
@@ -319,6 +322,17 @@ export default {
     
 }
 
+.loop_div{
+
+    display: grid;
+
+    align-items: center;
+
+    justify-items: center;
+    
+    width: 100%;
+}
+
 .article_2{
 
     display: grid;
@@ -332,6 +346,8 @@ export default {
     text-align: center;
 
     margin-bottom: 25px;
+
+    width: 100%;
 }
 
 
@@ -474,6 +490,23 @@ background-color: #003F91;
 border-radius: 50px;
 }
 
+
+.loop_div{
+
+display: grid;
+
+align-items: center;
+
+justify-items: center;
+
+width: 100%;
+
+grid-template-columns: 1fr 1fr;
+
+}
+
+
+
 .article_2>.span_menu{
 
 width: 75%;
@@ -511,10 +544,24 @@ width: 50%;
 
 }
 
+.loop_div{
+
+display: grid;
+
+align-items: center;
+
+justify-items: center;
+
+width: 100%;
+
+grid-template-columns: 1fr 1fr 1fr;
+
+}
+
 .menu_div>h1{
 
 
-    width: 50%;
+    width: 25%;
 
 }
 .article_1{
@@ -526,7 +573,7 @@ width: 50%;
 
 .article_1>.span_rest{
 
-width: 75%;
+width: 40%;
 
 
 
@@ -539,7 +586,7 @@ width: 75%;
 }
 
 .landing_div{
-    width: 100%;
+    width: 50%;
 
 }
 

@@ -1,22 +1,18 @@
 <template>
-    <div>
-        <section class="delete_sect">
-                <article class="article_4">
-
-                    <span class="span_1">
-
-                        <h1>Account Settings:</h1>
-
-                        <input placeholder="enter your password to delete your account" type="text" ref="delete_acc">
+    <div class="parent">
 
 
-                        <button @click="delete_account">Delete Account</button>
+        <span class="span_1">
 
-                    </span>
+            <h1>Account Settings:</h1>
 
-                </article>
-            </section>
-  
+            <input placeholder="enter your password to delete your account" type="text" ref="delete_acc">
+
+
+            <button @click="delete_account">Delete Account</button>
+
+        </span>
+
 
     </div>
 </template>
@@ -113,6 +109,31 @@ export default {
 }
 </script>
 <style scoped>
+
+.parent{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+}
+.span_1>button{
+    color: #003F91;
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px;
+}
+.span_1{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-rows: 8vh 6vh 8vh;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #003F91;
+    width: 90%;
+    border-radius: 10px;
+    color: #FFFFFF;
+}
 @media only screen and (min-width: 770px){
 
 
