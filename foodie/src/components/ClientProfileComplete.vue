@@ -123,7 +123,17 @@ import Cookies from 'vue-cookies';
         }
     }
 </script>
+<style scoped>
+@media only screen and (min-width: 770px){
 
-<style lang="scss" scoped>
 
+
+}
+
+
+@media only screen and (min-width: 1025px){
+
+
+    
+}
 </style>

@@ -103,8 +103,13 @@ import Cookies from 'vue-cookies';
                     
                 Cookies.remove(`food_cart`);
 
-                this.$router.push(`/AccountProfile`);
+                if(menu_item_no !== undefined){
 
+                    this.$router.push(`/AccountProfile`);
+
+                }
+
+        
                 //on post success, removes cart cookie and pushes to your account page//
 
                 }).catch((error)=>{

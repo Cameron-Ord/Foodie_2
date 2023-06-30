@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="client !== null">
           <!--importing components..-->
 
         <page-header></page-header>
@@ -20,8 +20,11 @@ import Cookies from 'vue-cookies';
 
     export default {
         
-
-        Cookies,
+        data() {
+            return {
+                client: undefined
+            }
+        },
 
         components:{
             PageHeader,
@@ -36,6 +39,9 @@ import Cookies from 'vue-cookies';
             let get_div = document.querySelector(`body`);
 
             get_div.classList.remove(`no-scroll`);
+
+            this.client = Cookies.get('client_login_token');
+
         }
     }
 </script>

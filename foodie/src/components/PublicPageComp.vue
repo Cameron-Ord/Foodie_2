@@ -53,7 +53,7 @@
 
         <!--if the food cart variable is not null, display-->
 
-        <article class="article_3" v-if="food_cart !== null">
+        <article class="article_3" v-if="food_cart !== null && client !==null">
 
         <span class="checkout_box">
             <router-link to="/ShoppingCart" class="router_css">View Cart</router-link>
@@ -76,7 +76,9 @@ export default {
 
                menu_items: [],
 
-               food_cart: undefined
+               food_cart: undefined,
+
+               client: undefined
             }
         },
 
@@ -94,20 +96,16 @@ export default {
 
                 this.menu_items.push(menu_item);
 
-            
-
                 Cookies.set(`food_cart`, this.menu_items);
 
-              
-            
                 
-
             }
 
         },
 
         mounted(){
 
+            this.client = Cookies.get('client_login_token');
 
             let chosen_restaurant_id = Cookies.get(`restaurant_selected`);
 
