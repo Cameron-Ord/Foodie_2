@@ -107,15 +107,6 @@ import Cookies from 'vue-cookies';
 }
 
 
-
-
-
-
-
-
-
-
-
 @media only screen and (min-width: 1025px){
 
 

@@ -16,7 +16,7 @@
         </div>
 
         <button :clicked_confirm="i" @click="confirm_order" ref="confirmed_order">Confirm Order</button>
-        
+
         </div>
     </span>
 
@@ -178,5 +178,6 @@ import Cookies from 'vue-cookies';
 </script>
 
 <style lang="scss" scoped>
+
 
 </style>
