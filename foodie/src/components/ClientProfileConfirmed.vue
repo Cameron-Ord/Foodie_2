@@ -185,6 +185,65 @@ import Cookies from 'vue-cookies';
     margin-bottom: 5px;
 
 }
+@media only screen and (min-width: 770px){
 
+
+.parent{
+
+
+}
+
+.incomp{
+
+}
+
+.incomp>h1{
+
+}
+
+.incomp_order{
+
+}
+
+.incomp_order>h1{
+
+}
+
+.incomp_order>div{
+
+
+}
+}
+
+
+@media only screen and (min-width: 1025px){
+
+.parent{
+
+
+}
+
+.incomp{
+
+}
+
+.incomp>h1{
+
+}
+
+.incomp_order{
+
+}
+
+.incomp_order>h1{
+
+}
+
+.incomp_order>div{
+
+
+}
+    
+}
 
 </style>

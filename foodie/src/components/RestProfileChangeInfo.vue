@@ -93,7 +93,7 @@ import Cookies from 'vue-cookies';
 
                 method: `PATCH`,
 
-                url: `${process.env.VUE_APP_BASE_DOMAIN}api/restaurant`,
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant`,
 
                 headers: {
 
