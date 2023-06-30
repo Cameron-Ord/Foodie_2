@@ -72,8 +72,6 @@ import PageFooter from '@/components/PageFooter.vue';
 
                 let restaurant = this.restaurants[button_clicker];
 
-                console.log(restaurant['id'])
-
                 Cookies.set(`restaurant_selected`, restaurant[`id`]);
 
                 this.$router.push(`/PublicPage`);
@@ -96,7 +94,7 @@ import PageFooter from '@/components/PageFooter.vue';
             }).then((response)=>{
 
                 response;
-                console.log(response);
+       
 
                 for(let i = 0; i < response[`data`].length; i = i +1){
 

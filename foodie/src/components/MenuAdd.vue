@@ -99,76 +99,10 @@ import Cookies from 'vue-cookies';
 
 <style scoped>
 
-.span_1 {
-
-
-display: grid;
-
-justify-items: center;
-
-align-items: center;
-
-text-align: center;
-
-grid-template-rows: 15vh 10vh 5vh 10vh 5vh 10vh 5vh 10vh 5vh 10vh;
-
-background-color: #003F91;
-
-width: 90%;
-
-border-radius: 15px;
-
-margin-bottom: 25px;
-}
-
-.span_1>button{
-
-    color: #003F91;
-
-    background-color: #FFFFFF;
-
-    padding: 10px;
-
-    height: 40px;
-
-    width: 75px;
-}
-
-.span_1>p{
-
-color: #003F91;
-
-background-color: #FFFFFF;
-
-padding: 10px;
-
-border-radius: 10px;
-
-
-}
-
-.span_1>h1{
-
-color: #FFFFFF;
-
-width: 75%;
-
-}
-
-
-
-
-
-
-
 
 @media only screen and (min-width: 770px){
 
-.span_1 {
 
-width: 75%;
-
-}
 
 }
 
@@ -184,11 +118,6 @@ width: 75%;
 
 @media only screen and (min-width: 1025px){
 
-.span_1 {
-
-width: 50%;
-
-}
 
     
 }
