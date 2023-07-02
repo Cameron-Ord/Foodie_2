@@ -11,7 +11,7 @@
 
                 <div>
                 <p>Name:</p>
-                <input type="text" ref="Name_Box_Add">
+                <input type="text" ref="Name_Box_Add" class="name_type_add">
                 </div>
                 <div>
                 <p>Description:</p>
@@ -28,6 +28,7 @@
                 
                 <span class="special_span">
                 <button @click="add_product">Add</button>
+                <p v-if="(status !==undefined && item_added !==undefined) || (status == 'Failed to add item')">{{ status }}</p>
                 </span>
 
 
@@ -45,7 +46,8 @@ import Cookies from 'vue-cookies';
     export default {
         data() {
             return {
-              
+              status: undefined,
+              item_added: undefined
             }
         },
 
@@ -60,6 +62,10 @@ import Cookies from 'vue-cookies';
             let restaurant_token = Cookies.get(`rest_login_token`);
 
             let rest_id_value = Cookies.get(`restaurant_id`);
+
+            let name_input_menu_add = document.querySelector(`.name_type_add`);
+
+            let name_input_value_menu_add = name_input_menu_add['value'];
 
             if (rest_id_value !== undefined) {
 
@@ -94,12 +100,16 @@ import Cookies from 'vue-cookies';
 
                     response;
 
+                    this.item_added = name_input_value_menu_add;
+
+                    this.status = `${this.item_added} added to menu`;
                   
 
                 }).catch((error) => {
 
                     error;
-
+                    
+                    this.status = 'Failed to add item';
                 });
 
             }

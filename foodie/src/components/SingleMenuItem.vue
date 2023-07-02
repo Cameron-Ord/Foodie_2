@@ -35,28 +35,28 @@
                 <p class="text_decor">Change Name:</p>
                 <input type="value" class="name_type">
                 <button :clicked_item="j" ref="product_clicked" @click="edit_name">Edit</button>
-                <p v-if="status !== undefined && new_name !== undefined && status === `${this.menu_get_holder[this.j]['name']} price updated to ${this.new_name}`">{{ status }}</p>
+                <p v-if="(status !== undefined && status === name_resp) || (status !== undefined && status === 'please enter a new name!')">{{ status }}</p>
                 </div>
 
                 <div>
                 <p class="text_decor">Change Description:</p>
                 <input type="value" class="desc_type">
                 <button :clicked_item="j" ref="product_clicked" @click="edit_desc">Edit</button>
-                <p v-if="status !== undefined && status === `${this.menu_get_holder[this.j]['name']} description updated`">{{ status }}</p>
+                <p v-if="(status !== undefined && status === desc_resp) || (status !== undefined && status === 'please enter a new description!')">{{ status }}</p>
                 </div>
 
                 <div>
                 <p class="text_decor">Change Image</p>
                 <input type="value" class="image_type">
                 <button :clicked_item="j" ref="product_clicked" @click="edit_image">Edit</button>
-                <p v-if="status !== undefined && status ===`${this.menu_get_holder[this.j]['name']} image updated`">{{ status }}</p>
+                <p v-if="(status !== undefined && status === image_resp) || (status !== undefined && status === 'please select a new image!')">{{ status }}</p>
                 </div>
 
                 <div>
                 <p class="text_decor">Change Price: </p>
                 <input type="value" class="price_type">
                 <button :clicked_item="j" ref="product_clicked" @click="edit_price">Edit</button>
-                <p v-if="status !== undefined && new_price !== undefined && status === `${this.menu_get_holder[this.j]['name']} price updated to ${this.new_price}`">{{ status }}</p>
+                <p v-if="(status !== undefined && status === price_resp) || (status !== undefined && status === 'please enter a new price!')">{{ status }}</p>
                 </div>
 
                 <span class="delete_div">
@@ -84,9 +84,14 @@ export default {
             menu_get_holder: [],
             new_price: undefined,
             new_name: undefined,
-
+            new_desc: undefined,
+            new_image: undefined,
             status: undefined,
-            status_delete: undefined
+            status_delete: undefined,
+            name_resp: undefined,
+            price_resp: undefined,
+            desc_resp: undefined,
+            image_resp: undefined
 
 
         }
@@ -191,8 +196,12 @@ export default {
 
             let name_input = document.querySelector(`.name_type`);
 
-            let name_input_value = name_input[`value`];
+            this.new_name = name_input[`value`];
 
+            if(this.new_name === ''){
+
+                this.new_name = null;
+            }
 
 
             
@@ -204,8 +213,6 @@ export default {
 
                 headers: {
 
-                    'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
-
                     token: restaurant_token
 
                 },
@@ -214,7 +221,7 @@ export default {
 
                     menu_id: image,
 
-                    name: name_input_value,
+                    name: this.new_name,
 
 
 
@@ -222,16 +229,23 @@ export default {
 
 
             }).then((response) => {
+                
+                if(response['data'][0]['name'] !== undefined){
 
-                response;
-                this.new_name = name_input_value;
+                this.name_resp = `${this.menu_get_holder[this.j]['name']} name updated to ${response['data'][0]['name']}`
+                this.status = this.name_resp;
 
-                this.status = `${this.menu_get_holder[this.j]['name']} price updated to ${this.new_name}`;
+                }else{
+
+                    this.status = 'please enter a new name!';
+                }
 
 
             }).catch((error) => {
 
                 error;
+
+                this.status = 'Something has gone wrong!';
 
 
             })
@@ -252,11 +266,13 @@ export default {
 
             let desc_input = document.querySelector(`.desc_type`);
 
-            let desc_input_value = desc_input[`value`];
+            this.new_desc = desc_input[`value`];
 
 
+            if(this.new_desc === ''){
 
-
+                this.new_desc = null;
+            }
          
             axios({
 
@@ -266,8 +282,6 @@ export default {
 
                 headers: {
 
-                    'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
-
                     token: restaurant_token
 
                 },
@@ -275,7 +289,7 @@ export default {
                 data: {
 
                     menu_id: image,
-                    description: desc_input_value
+                    description: this.new_desc
 
 
                 }
@@ -285,13 +299,22 @@ export default {
 
                 response;
 
-                this.status = `${this.menu_get_holder[this.j]['name']} description updated`;
+                
+                if(response['data'][0]['description'] !== undefined){
+
+                this.desc_resp = `${this.menu_get_holder[this.j]['name']} description updated`
+                this.status = this.desc_resp;
+
+                }else{
+
+                    this.status = 'please enter a new description!';
+                }
                 
             }).catch((error) => {
 
                 error;
 
-                this.status = 'Please enter a description!';
+                this.status = 'something has gone wrong!';
 
             })
 
@@ -311,7 +334,14 @@ export default {
 
             let image_input = document.querySelector(`.image_type`);
 
-            let image_input_value = image_input[`value`];
+            this.new_image = image_input[`value`];
+
+
+            
+            if(this.new_image === ''){
+
+                this.new_image = null;
+            }
 
             axios({
 
@@ -321,8 +351,6 @@ export default {
 
                 headers: {
 
-                    'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
-
                     token: restaurant_token
 
                 },
@@ -330,7 +358,7 @@ export default {
                 data: {
 
                     menu_id: image,
-                    image_url: image_input_value,
+                    image_url: this.new_image,
 
 
 
@@ -340,7 +368,16 @@ export default {
             }).then((response) => {
 
                 response;
-                this.status = `${this.menu_get_holder[this.j]['name']} image updated`;
+                
+                if(response['data'][0]['image_url'] !== undefined){
+
+                this.image_resp = `${this.menu_get_holder[this.j]['name']} image updated`
+                this.status = this.image_resp;
+
+                }else{
+
+                    this.status = 'please select a new image!';
+                }
               
 
 
@@ -348,7 +385,7 @@ export default {
 
                 error;
 
-                this.status = 'Please input an image!';
+                this.status = 'something has gone wrong!';
 
             })
 
@@ -369,9 +406,12 @@ export default {
 
             let price_input = document.querySelector(`.price_type`);
 
-            let price_input_value = price_input[`value`];
+            this.new_price = price_input[`value`];
 
+            if(this.new_price === ''){
 
+                this.new_price = null;
+            }
           
             axios({
 
@@ -381,8 +421,6 @@ export default {
 
                 headers: {
 
-                    'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
-
                     token: restaurant_token
 
                 },
@@ -390,7 +428,7 @@ export default {
                 data: {
 
                     menu_id: image,
-                    price: price_input_value,
+                    price: this.new_price,
 
 
 
@@ -399,17 +437,23 @@ export default {
 
             }).then((response) => {
 
-                response;
-                this.new_price = price_input_value;
 
-                this.status = `${this.menu_get_holder[this.j]['name']} price updated to ${this.new_price}`;
+                
+                if(response['data'][0]['price'] !== undefined){
 
+                this.price_resp = `${this.menu_get_holder[this.j]['name']} price updated to ${response['data'][0]['price']}`
+                this.status = this.price_resp;
+
+                }else{
+
+                    this.status = 'please enter a new price!';
+                }
 
             }).catch((error) => {
 
                 error;
 
-                this.status = "please input a new price"
+                this.status = 'something has gone wrong!'
 
 
             })
