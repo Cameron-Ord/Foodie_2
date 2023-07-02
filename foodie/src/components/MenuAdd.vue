@@ -11,19 +11,19 @@
 
                 <div>
                 <p>Name:</p>
-                <input type="text" ref="Name_Box_Add" class="name_type_add">
+                <input type="value" ref="Name_Box_Add" class="name_type_add">
                 </div>
                 <div>
                 <p>Description:</p>
-                <input type="text" ref="Desc_Box_Add">
+                <input type="value" ref="Desc_Box_Add">
                 </div>
                 <div>
                 <p>Image:</p>
-                <input type="text" ref="Image_Box_Add">
+                <input type="value" ref="Image_Box_Add">
                 </div>
                 <div>
                 <p>Price:</p>
-                <input type="text" ref="Price_Box_Add">
+                <input type="value" ref="Price_Box_Add">
                 </div>
                 
                 <span class="special_span">
