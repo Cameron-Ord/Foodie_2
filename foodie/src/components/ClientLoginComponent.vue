@@ -103,7 +103,7 @@ import Cookies from 'vue-cookies';
 
         mounted(){
 
-            console.log(process.env.VUE_APP_BASE_DOMAIN);
+         
         }
 
     }

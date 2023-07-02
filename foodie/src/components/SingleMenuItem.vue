@@ -1,12 +1,12 @@
 <template>
     <!--an if statement that protects the html-->
-    <div class="parent">
+    <div class="parent" v-if="j !== undefined && menu_get_holder !== undefined">
 
         <div class="header_div">
             <h2>View and modify your menu items</h2>
         </div>
 
-        <div v-if="j !== undefined && menu_get_holder !== undefined" class="parent_div"> 
+        <div  class="parent_div"> 
 
             <span class="span_1" >
 
@@ -35,31 +35,36 @@
                 <p class="text_decor">Change Name:</p>
                 <input type="value" class="name_type">
                 <button :clicked_item="j" ref="product_clicked" @click="edit_name">Edit</button>
+                <p v-if="status !== undefined && new_name !== undefined && status === `${this.menu_get_holder[this.j]['name']} price updated to ${this.new_name}`">{{ status }}</p>
                 </div>
 
                 <div>
                 <p class="text_decor">Change Description:</p>
                 <input type="value" class="desc_type">
                 <button :clicked_item="j" ref="product_clicked" @click="edit_desc">Edit</button>
+                <p v-if="status !== undefined && status === `${this.menu_get_holder[this.j]['name']} description updated`">{{ status }}</p>
                 </div>
 
                 <div>
                 <p class="text_decor">Change Image</p>
                 <input type="value" class="image_type">
                 <button :clicked_item="j" ref="product_clicked" @click="edit_image">Edit</button>
+                <p v-if="status !== undefined && status ===`${this.menu_get_holder[this.j]['name']} image updated`">{{ status }}</p>
                 </div>
 
                 <div>
                 <p class="text_decor">Change Price: </p>
                 <input type="value" class="price_type">
                 <button :clicked_item="j" ref="product_clicked" @click="edit_price">Edit</button>
+                <p v-if="status !== undefined && new_price !== undefined && status === `${this.menu_get_holder[this.j]['name']} price updated to ${this.new_price}`">{{ status }}</p>
                 </div>
 
                 <span class="delete_div">
                     <button :clicked_item="j" ref="product_clicked" @click="delete_product">Delete</button>     
+                    <p v-if="status_delete !== undefined">{{ status_delete }}</p>
                 </span>
        
-            
+        
             </article>
         </div>
     </div>
@@ -77,6 +82,11 @@ export default {
             j: undefined,
 
             menu_get_holder: [],
+            new_price: undefined,
+            new_name: undefined,
+
+            status: undefined,
+            status_delete: undefined
 
 
         }
@@ -155,9 +165,13 @@ export default {
 
                 response;
 
+                this.status_delete = 'Item deleted';
+
             }).catch((error) => {
 
                 error;
+
+                this.status_delete = 'Try again';
 
             });
         },
@@ -210,8 +224,9 @@ export default {
             }).then((response) => {
 
                 response;
+                this.new_name = name_input_value;
 
-              
+                this.status = `${this.menu_get_holder[this.j]['name']} price updated to ${this.new_name}`;
 
 
             }).catch((error) => {
@@ -270,11 +285,13 @@ export default {
 
                 response;
 
+                this.status = `${this.menu_get_holder[this.j]['name']} description updated`;
                 
             }).catch((error) => {
 
                 error;
 
+                this.status = 'Please enter a description!';
 
             })
 
@@ -323,7 +340,7 @@ export default {
             }).then((response) => {
 
                 response;
-
+                this.status = `${this.menu_get_holder[this.j]['name']} image updated`;
               
 
 
@@ -331,6 +348,7 @@ export default {
 
                 error;
 
+                this.status = 'Please input an image!';
 
             })
 
@@ -382,13 +400,16 @@ export default {
             }).then((response) => {
 
                 response;
+                this.new_price = price_input_value;
 
-               
+                this.status = `${this.menu_get_holder[this.j]['name']} price updated to ${this.new_price}`;
 
 
             }).catch((error) => {
 
                 error;
+
+                this.status = "please input a new price"
 
 
             })
@@ -559,7 +580,7 @@ padding: 10px;
     align-items: center;
     justify-items: center;
 
-    grid-template-rows: 10vh 6vh 8vh;
+    grid-auto-flow: row;
     width: 100%;
     background-color: #003F91;
     margin-top: 10px;
@@ -577,6 +598,16 @@ color: #003F91;
 width: 25%;
 padding: 10px;
 border-radius: 10px;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+.span_3>div>input{
+    margin-top: 10px;
+margin-bottom: 10px;
+}
+.span_3>div>p{
+    margin-top: 10px;
+margin-bottom: 10px;
 }
 
 .text_decor{
@@ -597,6 +628,7 @@ border-radius: 10px;
     margin-top: 10px;
     padding-bottom: 10px;
     border-radius: 10px;
+    grid-auto-flow: row;
 
 }
 .delete_div>button{
@@ -608,10 +640,16 @@ align-items: center;
 background-color: #FFFFFF;
 color: #003F91;
 
+margin-top: 10px;
+margin-bottom: 10px;
 padding: 10px;
 border-radius: 10px;
 
 
+}
+.delete_div>button>p{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 @media only screen and (min-width: 770px){
 
