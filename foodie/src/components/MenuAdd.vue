@@ -3,7 +3,7 @@
             <span class="span_1">
 
                 <span class="special_span">
-                    <h1>Add, modify, or remove your menu items:</h1>
+                    <h1>Add menu items:</h1>
                 </span>
      
 
@@ -65,7 +65,7 @@ import Cookies from 'vue-cookies';
 
             let name_input_menu_add = document.querySelector(`.name_type_add`);
 
-            let name_input_value_menu_add = name_input_menu_add['value'];
+            this.item_added = name_input_menu_add['value'];
 
             if (rest_id_value !== undefined) {
 
@@ -77,7 +77,6 @@ import Cookies from 'vue-cookies';
 
                     headers: {
 
-                        'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
 
                         token: restaurant_token
 
@@ -98,11 +97,15 @@ import Cookies from 'vue-cookies';
 
                     //if post is successful, adds the information inside all the text boxes, they all need to be filled//
 
-                    response;
-
-                    this.item_added = name_input_value_menu_add;
+                    if(response['data'][0]['row_count()'] !== undefined){
 
                     this.status = `${this.item_added} added to menu`;
+
+                    } else {
+
+                        this.status = 'Failed to add item';
+
+                    }
                   
 
                 }).catch((error) => {

@@ -10,26 +10,31 @@
         <p class="p_tag_highlight">Change business email:</p>
         <input placeholder="enter a new email" type="text" ref="change_email">
         <button @click="change_email">Change email</button>
+        <p v-if="(status !== undefined && status === email_resp) || (status !== undefined && status === 'please enter a new email!')">{{ status }}</p>
         </div>
         <div>
         <p class="p_tag_highlight">Change phone number:</p>
         <input placeholder="enter a new phone number" type="text" ref="change_number">
         <button @click="change_phone">Change phone</button>
+        <p v-if="(status !== undefined && status === phone_resp) || (status !== undefined && status === 'please enter a new number!')">{{ status }}</p>
         </div>
         <div>
         <p class="p_tag_highlight">Change address:</p>
         <input placeholder="enter your new address" type="text" ref="change_address">
         <button @click="change_address">Change address</button>
+        <p v-if="(status !== undefined && status === address_resp) || (status !== undefined && status === 'please enter a new address!')">{{ status }}</p>
         </div>
         <div>
         <p class="p_tag_highlight">Edit your bio:</p>
         <input placeholder="write your information here" type="text" ref="change_bio">
         <button @click="change_bio">Change bio</button>
+        <p v-if="(status !== undefined && status === bio_resp) || (status !== undefined && status === 'please enter a new bio!')">{{ status }}</p>
         </div>
         <div>
         <p class="p_tag_highlight">Change banner:</p>
         <input placeholder="upload your image here" type="text" ref="change_banner">
         <button @click="change_banner">Change banner</button>
+        <p v-if="(status !== undefined && status === banner_resp) || (status !== undefined && status === 'please select a new image!')">{{ status }}</p>
         </div>
         </span>
 
@@ -44,7 +49,19 @@ import Cookies from 'vue-cookies';
 
         data() {
             return {
-               
+             
+            status: undefined,
+               new_email: undefined,
+               new_phone: undefined,
+               new_address: undefined,
+               new_bio: undefined,
+               new_banner: undefined,
+
+               email_resp: undefined,
+               phone_resp: undefined,
+               address_resp: undefined,
+               bio_resp: undefined,
+               banner_resp: undefined
             }
         },
 
@@ -55,6 +72,13 @@ import Cookies from 'vue-cookies';
 
             let restaurant_token = Cookies.get(`rest_login_token`);
 
+            this.new_email = this.$refs[`change_email`][`value`];
+
+            if(this.new_email === ''){
+
+                this.new_email = null;
+            }
+
             axios({
 
                 method: `PATCH`,
@@ -68,17 +92,26 @@ import Cookies from 'vue-cookies';
 
                 data: {
 
-                    email: this.$refs[`change_email`][`value`],
+                    email: this.new_email,
                 }
 
             }).then((response) => {
 
                 response;
+                if(response['data'][0]['email'] !== undefined){
 
+                    this.email_resp = `email updated to ${response['data'][0]['email']}`;
+                    this.status = this.email_resp;
+
+                }else{
+                    this.status = 'please enter a new email!';
+                }
 
             }).catch((error) => {
 
                 error;
+
+
 
             });
 
@@ -88,6 +121,15 @@ import Cookies from 'vue-cookies';
         change_phone() {
 
             let restaurant_token = Cookies.get(`rest_login_token`);
+ 
+         
+            this.new_phone = this.$refs[`change_number`][`value`];
+
+            if(this.new_phone === ''){
+
+                this.new_phone = null;
+            }
+
 
             axios({
 
@@ -102,13 +144,20 @@ import Cookies from 'vue-cookies';
 
                 data: {
 
-                    phone_number: this.$refs[`change_number`][`value`],
+                    phone_number: this.new_phone,
                 }
 
             }).then((response) => {
 
                 response;
+                if(response['data'][0]['phone_number'] !== undefined){
 
+                    this.phone_resp = `phone number updated to ${response['data'][0]['phone_number']}`;
+                    this.status = this.phone_resp;
+
+                }else{
+                    this.status = 'please enter a new number!';
+                }
 
             }).catch((error) => {
 
@@ -122,6 +171,13 @@ import Cookies from 'vue-cookies';
 
             let restaurant_token = Cookies.get(`rest_login_token`);
 
+            this.new_address = this.$refs[`change_address`][`value`];
+
+            if(this.new_address === ''){
+
+                this.new_address= null;
+            }
+
             axios({
 
                 method: `PATCH`,
@@ -130,20 +186,25 @@ import Cookies from 'vue-cookies';
 
                 headers: {
 
-                    'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
-
                     token: restaurant_token,
                 },
 
                 data: {
 
-                    address: this.$refs[`change_address`][`value`],
+                    address:this.new_address,
                 }
 
             }).then((response) => {
 
                 response;
+                if(response['data'][0]['address'] !== undefined){
 
+                    this.address_resp = `address updated to ${response['data'][0]['address']}`;
+                    this.status = this.address_resp;
+
+                }else{
+                    this.status = 'please enter a new address!';
+                }
 
             }).catch((error) => {
 
@@ -157,6 +218,12 @@ import Cookies from 'vue-cookies';
 
             let restaurant_token = Cookies.get(`rest_login_token`);
 
+            this.new_bio = this.$refs[`change_bio`][`value`];
+
+            if(this.new_bio === ''){
+
+                this.new_bio= null;
+            }
             axios({
 
                 method: `PATCH`,
@@ -172,14 +239,21 @@ import Cookies from 'vue-cookies';
 
                 data: {
 
-                    bio: this.$refs[`change_bio`][`value`],
+                    bio: this.new_bio,
                 }
 
             }).then((response) => {
 
                 response;
 
+                if(response['data'][0]['bio'] !== undefined){
 
+                    this.bio_resp = `bio updated`;
+                    this.status = this.bio_resp;
+
+                }else{
+                    this.status = 'please enter a new bio!';
+                }
             }).catch((error) => {
 
                 error;
@@ -193,7 +267,13 @@ import Cookies from 'vue-cookies';
         change_banner() {
 
             let restaurant_token = Cookies.get(`rest_login_token`);
+            
+            this.new_banner = this.$refs[`change_banner`][`value`];
 
+            if(this.new_banner === ''){
+
+                this.new_banner= null;
+            }
             axios({
 
                 method: `PATCH`,
@@ -207,12 +287,21 @@ import Cookies from 'vue-cookies';
 
                 data: {
 
-                    banner_url: this.$refs[`change_banner`][`value`],
+                    banner_url: this.new_banner,
                 }
 
             }).then((response) => {
 
                 response;
+
+                if(response['data'][0]['banner_url'] !== undefined){
+
+                    this.banner_resp = `banner image updated`;
+                    this.status = this.banner_resp;
+
+                }else{
+                    this.status = 'please select a new image!';
+                }
 
 
             }).catch((error) => {
@@ -278,7 +367,7 @@ import Cookies from 'vue-cookies';
     align-items: center;
     justify-items: center;
     text-align: center;
-    grid-template-rows: 10vh 6vh 10vh;
+    grid-auto-flow: row;
     background-color: #003F91;
     width: 100%;
     margin-top: 10px;
@@ -288,8 +377,21 @@ import Cookies from 'vue-cookies';
 
 }
 
+.span_2>div>p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.span_2>div>input{
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .span_2>div>button{
 
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 10px;
     background-color: #FFFFFF;
     color: #003F91;
