@@ -43,6 +43,20 @@ import Cookies from 'vue-cookies';
         data() {
             return {
 
+                status: undefined,
+
+                new_email: undefined,
+                new_user: undefined,
+                new_avatar: undefined,
+                new_password: undefined,
+                new_address: undefined,
+
+                email_resp: undefined,
+                user_resp: undefined,
+                avatar_resp: undefined,
+                password_resp: undefined,
+                address_resp: undefined
+
             }
         },
 
@@ -58,8 +72,6 @@ import Cookies from 'vue-cookies';
                 url: `${process.env.VUE_APP_BASE_DOMAIN}/api/client`,
 
                 headers: {
-
-                    'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
 
                     token: client_token,
 
