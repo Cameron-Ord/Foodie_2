@@ -271,6 +271,7 @@ export default {
     background-color: #003F91;
     
     margin-top: 25px;
+    margin-bottom: 25px;
 
     width: 90%;
 

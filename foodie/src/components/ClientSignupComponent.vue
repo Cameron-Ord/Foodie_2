@@ -22,6 +22,8 @@
 
                 <button @click="sign_up"><h1>Create Account</h1></button>
 
+                <p v-if="status !== undefined">{{ status }}</p>
+
             </span>
             <span class="tinyspan">
                 <h4>Already have an account?</h4><router-link class="router_color" to="/Login"><h2>Log-in</h2></router-link>
@@ -48,6 +50,8 @@ export default {
 
     data() {
         return {
+
+            status:undefined
 
         }
     },
@@ -112,6 +116,8 @@ export default {
             }).catch((error) => {
 
                 error;
+               
+                this.status = 'please enter valid information!';
 
             });
 
@@ -178,7 +184,7 @@ align-items: center;
 
 justify-items: center;
 
-grid-template-rows: 10vh 8vh 8vh 8vh 8vh 8vh 8vh 10vh;
+grid-template-rows: 10vh 8vh 8vh 8vh 8vh 8vh 8vh 10vh auto;
 
 width: 90%;
 

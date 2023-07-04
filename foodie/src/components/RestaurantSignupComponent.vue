@@ -24,6 +24,7 @@
                         <input placeholder="password" type="password" ref="password_input">
 
                         <button @click="sign_up">Create Account</button>
+                        <p v-if="status !== undefined">{{ status }}</p>
 
                     </span>
                     <span class="tinyspan">
@@ -51,6 +52,7 @@ import Cookies from 'vue-cookies';
 
     data() {
         return {
+            status:undefined
 
         }
     },
@@ -114,7 +116,7 @@ import Cookies from 'vue-cookies';
 
                 error;
 
-          
+                this.status = 'please enter valid information!';
                 
 
             });
@@ -174,7 +176,7 @@ align-items: center;
 
 justify-items: center;
 
-grid-template-rows: 10vh 8vh 8vh 8vh 8vh 8vh 8vh 8vh 8vh 8vh 15vh;
+grid-template-rows: 10vh 8vh 8vh 8vh 8vh 8vh 8vh 8vh 8vh 8vh 15vh auto;
 
 margin-top: 25px;
 

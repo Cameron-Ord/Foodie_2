@@ -74,7 +74,7 @@ import Cookies from 'vue-cookies';
 
                     //if axios post is successful, assigns respective tokens to a cookie, and removes possible existing tokens..//
 
-                    console.log(response);
+        
 
                     Cookies.set(`client_login_token`, `${response[`data`][0][`token`]}`);
 
@@ -88,7 +88,12 @@ import Cookies from 'vue-cookies';
 
                     //pushes to home page//
 
+                    
+                if((response['data'][0]['client_id'] !== null) || (response['data'][0]['client_id'] !== undefined)){
+
                     this.$router.push(`/`);
+
+                }
 
 
 
