@@ -86,7 +86,7 @@ export default {
             this.client_logged_in = false;
             this.partner_logged_in = false;
 
-            this.$router.push(`/`)
+            this.$router.go();
         },
 
 

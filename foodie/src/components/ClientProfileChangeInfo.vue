@@ -223,6 +223,7 @@ import Cookies from 'vue-cookies';
             let client_token = Cookies.get(`client_login_token`);
 
             this.new_password = this.$refs[`password_change`].value;
+            
 
             if(this.new_password === ''){
 
@@ -237,8 +238,6 @@ import Cookies from 'vue-cookies';
                 url: `${process.env.VUE_APP_BASE_DOMAIN}/api/client`,
 
                 headers: {
-
-
 
                     token: client_token,
 

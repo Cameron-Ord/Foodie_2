@@ -11,6 +11,8 @@
 
             <button @click="delete_account">Delete Account</button>
 
+            <p v-if="status !== undefined">{{ status }}</p>
+
         </span>
 
 
@@ -89,6 +91,8 @@ export default {
 
                 error;
 
+                this.status = 'Enter your password to delete your account';
+
             });
 
 
@@ -141,7 +145,7 @@ export default {
     display: grid;
     justify-items: center;
     align-items: center;
-    grid-template-rows: 8vh 6vh 8vh;
+    grid-template-rows: 8vh 6vh 8vh auto;
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: #003F91;

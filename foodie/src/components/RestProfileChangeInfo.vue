@@ -40,7 +40,7 @@
         <p class="p_tag_highlight">Change password:</p>
         <input placeholder="enter a new password" type="password" ref="change_password">
         <button @click="change_password">Change password</button>
-        <p v-if="(status !== undefined && status === password_resp) || (status !== undefined && status === 'please select a new password!') || (status !== undefined && status === 'something went wrong with change password')">{{ status }}</p>
+        <p v-if="(status !== undefined && status === password_resp) || (status !== undefined && status === 'please enter a new password!') || (status !== undefined && status === 'something went wrong with change password')">{{ status }}</p>
         </div>
         </span>
 
@@ -83,11 +83,12 @@ import Cookies from 'vue-cookies';
 
             this.new_password = this.$refs[`change_password`][`value`];
 
+        
             if(this.new_password === ''){
 
                 this.new_password = null;
             }
-
+ 
             axios({
 
                 method: `PATCH`,
@@ -101,12 +102,12 @@ import Cookies from 'vue-cookies';
 
                 data: {
 
-                    email: this.new_password,
+                    password: this.new_password,
                 }
 
             }).then((response) => {
 
-                response;
+            
                 if(response['data'][0]['password_updated'] !== undefined){
 
                     this.password_resp = `password updated`;
