@@ -103,7 +103,12 @@ import Cookies from 'vue-cookies';
     border-radius: 10px;
     width: 75%;
 }
+.bio_text{
 
+    margin-top: 6px;
+    margin-bottom: 6px;
+    width: 90%;
+}
 .article_1_div>img{
 
     width: 100%;

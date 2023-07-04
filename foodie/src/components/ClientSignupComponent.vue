@@ -16,7 +16,7 @@
                 <input placeholder="your last name" type="value" ref="last_name_input">
                 <input placeholder="your avatar" type="value" ref="avatar_input">
                 <input placeholder="username" type="value" ref="username_input">
-                <input placeholder="password" type="value" ref="password_input">
+                <input placeholder="password" type="password" ref="password_input">
 
                 <!--logs the user in-->
 
