@@ -93,10 +93,9 @@ export default {
 
                 //assigns respective tokens to a cookie and removes possible existing ones on success//
 
-                Cookies.set(`client_login_token`, `${response[`data`][`token`]}`);
+                Cookies.set(`client_login_token`, `${response[`data`][0][`token`]}`);
 
-                Cookies.set(`client_id_token`, `${response[`data`][`client_id`]}`);
-
+                Cookies.set(`client_id_token`, `${response[`data`][0][`client_id`]}`);
 
                 Cookies.remove(`rest_login_token`);
 
@@ -104,7 +103,11 @@ export default {
 
                 Cookies.remove(`food_cart`);
 
-                this.$router.push(`/`);
+                if((response['data'][0]['client_id'] !== null) || (response['data'][0]['client_id'] !== undefined)){
+
+                    this.$router.push(`/`);
+
+                }
 
             }).catch((error) => {
 

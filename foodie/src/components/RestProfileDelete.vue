@@ -33,6 +33,8 @@ export default {
     data() {
         return {
 
+            password: undefined,
+            status: undefined
 
 
         }
@@ -44,6 +46,13 @@ export default {
         delete_account() {
 
             let restaurant_token = Cookies.get(`rest_login_token`);
+
+            this.password = this.$refs[`delete_acc`][`value`];
+
+            if(this.password === ''){
+
+                this.password = null;
+            }
 
          
             axios({
@@ -59,16 +68,22 @@ export default {
 
                 data: {
 
-                    password: this.$refs[`delete_acc`][`value`],
+                    password: this.password
 
                 }
 
             }).then((response) => {
 
                 response;
+
+                if(response['data'][0]['deleted'] !== undefined){
+
                 Cookies.remove('restaurant_id');
                 Cookies.remove('rest_login_token');
                 this.$router.push('/');
+
+                }
+
 
             }).catch((error) => {
 

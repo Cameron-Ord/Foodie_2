@@ -103,7 +103,12 @@ import Cookies from 'vue-cookies';
 
                     Cookies.remove(`client_id_token`);
 
-                    this.$router.push(`/`)
+                    if((response['data'][0]['restaurant_id'] !== null) || (response['data'][0]['restaurant_id'] !== undefined)){
+
+                        this.$router.push(`/`);
+
+                    }
+
 
             }).catch((error) => {
 

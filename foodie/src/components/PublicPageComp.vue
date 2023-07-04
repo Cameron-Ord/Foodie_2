@@ -48,6 +48,8 @@
 
                 <button @click="add_to_cart" ref="button_clicked" :clicked_menu_item="i">Add to cart</button>
 
+                <p v-if="status === 'Added to cart!'">{{ status }}</p>
+
             </span>
 
         </article>
@@ -79,7 +81,9 @@ export default {
 
                food_cart: undefined,
 
-               client: undefined
+               client: undefined,
+
+               status: undefined
             }
         },
 
@@ -99,7 +103,10 @@ export default {
 
                 Cookies.set(`food_cart`, this.menu_items);
 
-                
+                this.status = 'Added to cart!';
+
+                this.food_cart = Cookies.get('food_cart');
+
             }
 
         },
@@ -360,7 +367,7 @@ export default {
 
     align-items: center;
 
-    grid-template-rows: 10vh 1fr 10vh 10vh;
+    grid-template-rows: 10vh 1fr 10vh 10vh auto;
 
     background-color: #003F91;
 
@@ -376,6 +383,8 @@ export default {
 .article_2>.span_menu>p{
 
     color: #FFFFFF;
+    margin-top: 5px;
+    margin-bottom: 5px;
 
 }
 

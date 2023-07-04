@@ -11,24 +11,31 @@
         <p>Change email:</p>
         <input placeholder="enter a new email" type="text" ref="email_change">
         <button @click="change_email">Update Email</button>
+        <p v-if="(status !== undefined && status === email_resp) || (status !== undefined && status === 'something went wrong with change email') || (status !== undefined && status === 'please enter a new email!')">{{ status }}</p>
         </div>
 
         <div>
         <p>Change username:</p>
         <input placeholder="enter a new username" type="text" ref="username_change">
         <button @click="change_username">Update Username</button>
+        <p v-if="(status !== undefined && status === user_resp) || (status !== undefined && status === 'something went wrong with change username') || (status !== undefined && status === 'please enter a new username!')">{{ status }}</p>
+
         </div>
 
         <div>
         <p>Change avatar:</p>
         <input placeholder="upload an image" type="text" ref="avatar_change">
         <button @click="change_avatar">Update Avatar</button>
+        <p v-if="(status !== undefined && status === avatar_resp) || (status !== undefined && status === 'something went wrong with change avatar') || (status !== undefined && status === 'please select a new image!')">{{status}}</p>
+
         </div>
 
         <div>
         <p>Change password:</p>
         <input placeholder="enter a password" type="password" ref="password_change">
         <button @click="change_password">Update Password</button>
+        <p v-if="(status !== undefined && status === password_resp) || (status !== undefined && status === 'something went wrong with change password') || (status !== undefined && status === 'please enter a new password!')">{{ status }}</p>
+
         </div>
 
         </span>
@@ -49,21 +56,31 @@ import Cookies from 'vue-cookies';
                 new_user: undefined,
                 new_avatar: undefined,
                 new_password: undefined,
-                new_address: undefined,
+
 
                 email_resp: undefined,
                 user_resp: undefined,
                 avatar_resp: undefined,
                 password_resp: undefined,
-                address_resp: undefined
+
 
             }
         },
 
         methods:{
+
+
+
         change_email() {
 
             let client_token = Cookies.get(`client_login_token`);
+
+            this.new_email = this.$refs[`email_change`].value;
+
+            if(this.new_email === ''){
+
+                this.new_email = null;
+            }
 
             axios({
 
@@ -79,17 +96,27 @@ import Cookies from 'vue-cookies';
 
                 data: {
 
-                    email: this.$refs[`email_change`].value,
+                    email: this.new_email,
                 }
 
             }).then((response) => {
 
                 response;
 
+                if(response['data'][0]['email'] !== undefined){
+
+                    this.email_resp = `email updated to ${response['data'][0]['email']}`;
+                    this.status = this.email_resp
+
+                }else{
+                    this.status = 'please enter a new email!';
+                }
+
+
             }).catch((error) => {
 
                 error;
-
+                this.status = 'something went wrong with change email';
             });
 
         },
@@ -97,6 +124,13 @@ import Cookies from 'vue-cookies';
         change_username() {
             let client_token = Cookies.get(`client_login_token`);
 
+            this.new_user = this.$refs[`username_change`].value;
+
+            if(this.new_user === ''){
+
+                this.new_user = null;
+            }
+
             axios({
 
                 method: `PATCH`,
@@ -111,17 +145,24 @@ import Cookies from 'vue-cookies';
 
                 data: {
 
-                    username: this.$refs[`username_change`].value,
+                    username: this.new_user
                 }
 
             }).then((response) => {
 
                 response;
+                if(response['data'][0]['username'] !== undefined){
 
+                    this.user_resp = `username updated to ${response['data'][0]['username']}`;
+                    this.status = this.user_resp;
+
+                }else{
+                    this.status = 'please enter a new username!';
+                }
             }).catch((error) => {
 
                 error;
-
+                this.status = 'something went wrong with change username';
             });
 
         },
@@ -130,6 +171,12 @@ import Cookies from 'vue-cookies';
 
             let client_token = Cookies.get(`client_login_token`);
 
+            this.new_avatar = this.$refs[`avatar_change`].value;
+
+            if(this.new_avatar === ''){
+                this.new_avatar = null;
+            }
+
             axios({
 
                 method: `PATCH`,
@@ -146,17 +193,26 @@ import Cookies from 'vue-cookies';
 
                 data: {
 
-                    image_url: this.$refs[`avatar_change`].value,
+                    image_url: this.new_avatar
                 }
 
             }).then((response) => {
 
                 response;
 
+                if(response['data'][0]['image_url'] !== undefined){
+
+                    this.avatar_resp = `username updated`;
+                    this.status = this.avatar_resp;
+
+                }else{
+                    this.status = 'please select a new image!';
+                }
+
             }).catch((error) => {
 
                 error;
-
+                this.status = 'something went wrong with change avatar';
             });
 
         },
@@ -166,6 +222,14 @@ import Cookies from 'vue-cookies';
 
             let client_token = Cookies.get(`client_login_token`);
 
+            this.new_password = this.$refs[`password_change`].value;
+
+            if(this.new_password === ''){
+
+                this.new_password = null;
+            }
+
+     
             axios({
 
                 method: `PATCH`,
@@ -182,16 +246,27 @@ import Cookies from 'vue-cookies';
 
                 data: {
 
-                    password: this.$refs[`password_change`].value,
+                    password: this.new_password
                 }
 
             }).then((response) => {
 
-                response;
+                response;                
+
+                if(response['data'][0]['password_updated'] !== undefined){
+
+                    this.password_resp = `password updated`;
+                    this.status = this.password_resp;
+
+
+                }else{
+                    this.status = 'please enter a new password!';
+                }
 
             }).catch((error) => {
 
                 error;
+                this.status = 'something went wrong with change password';
 
             });
 

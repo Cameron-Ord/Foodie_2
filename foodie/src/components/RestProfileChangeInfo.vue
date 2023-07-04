@@ -10,31 +10,37 @@
         <p class="p_tag_highlight">Change business email:</p>
         <input placeholder="enter a new email" type="text" ref="change_email">
         <button @click="change_email">Change email</button>
-        <p v-if="(status !== undefined && status === email_resp) || (status !== undefined && status === 'please enter a new email!')">{{ status }}</p>
+        <p v-if="(status !== undefined && status === email_resp) || (status !== undefined && status === 'please enter a new email!') || (status !== undefined && status === 'something went wrong with change email')">{{ status }}</p>
         </div>
         <div>
         <p class="p_tag_highlight">Change phone number:</p>
         <input placeholder="enter a new phone number" type="text" ref="change_number">
         <button @click="change_phone">Change phone</button>
-        <p v-if="(status !== undefined && status === phone_resp) || (status !== undefined && status === 'please enter a new number!')">{{ status }}</p>
+        <p v-if="(status !== undefined && status === phone_resp) || (status !== undefined && status === 'please enter a new number!') || (status !== undefined && status === 'something went wrong with change phone')">{{ status }}</p>
         </div>
         <div>
         <p class="p_tag_highlight">Change address:</p>
         <input placeholder="enter your new address" type="text" ref="change_address">
         <button @click="change_address">Change address</button>
-        <p v-if="(status !== undefined && status === address_resp) || (status !== undefined && status === 'please enter a new address!')">{{ status }}</p>
+        <p v-if="(status !== undefined && status === address_resp) || (status !== undefined && status === 'please enter a new address!') || (status !== undefined && status === 'something went wrong with change address')">{{ status }}</p>
         </div>
         <div>
         <p class="p_tag_highlight">Edit your bio:</p>
         <input placeholder="write your information here" type="text" ref="change_bio">
         <button @click="change_bio">Change bio</button>
-        <p v-if="(status !== undefined && status === bio_resp) || (status !== undefined && status === 'please enter a new bio!')">{{ status }}</p>
+        <p v-if="(status !== undefined && status === bio_resp) || (status !== undefined && status === 'please enter a new bio!') || (status !== undefined && status === 'something went wrong with change bio')">{{ status }}</p>
         </div>
         <div>
         <p class="p_tag_highlight">Change banner:</p>
         <input placeholder="upload your image here" type="text" ref="change_banner">
         <button @click="change_banner">Change banner</button>
-        <p v-if="(status !== undefined && status === banner_resp) || (status !== undefined && status === 'please select a new image!')">{{ status }}</p>
+        <p v-if="(status !== undefined && status === banner_resp) || (status !== undefined && status === 'please select a new image!') || (status !== undefined && status === 'something went wrong with change image')">{{ status }}</p>
+        </div>
+        <div>
+        <p class="p_tag_highlight">Change password:</p>
+        <input placeholder="enter a new password" type="password" ref="change_password">
+        <button @click="change_password">Change password</button>
+        <p v-if="(status !== undefined && status === password_resp) || (status !== undefined && status === 'please select a new password!') || (status !== undefined && status === 'something went wrong with change password')">{{ status }}</p>
         </div>
         </span>
 
@@ -56,16 +62,73 @@ import Cookies from 'vue-cookies';
                new_address: undefined,
                new_bio: undefined,
                new_banner: undefined,
+               new_password: undefined,
 
                email_resp: undefined,
                phone_resp: undefined,
                address_resp: undefined,
                bio_resp: undefined,
-               banner_resp: undefined
+               banner_resp: undefined,
+               password_resp: undefined
             }
         },
 
         methods:{
+
+
+
+        change_password() {
+
+            let restaurant_token = Cookies.get(`rest_login_token`);
+
+            this.new_password = this.$refs[`change_password`][`value`];
+
+            if(this.new_password === ''){
+
+                this.new_password = null;
+            }
+
+            axios({
+
+                method: `PATCH`,
+
+                url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant`,
+
+                headers: {
+
+                    token: restaurant_token,
+                },
+
+                data: {
+
+                    email: this.new_password,
+                }
+
+            }).then((response) => {
+
+                response;
+                if(response['data'][0]['password_updated'] !== undefined){
+
+                    this.password_resp = `password updated`;
+                    this.status = this.password_resp;
+
+                }else{
+                    this.status = 'please enter a new password!';
+                }
+
+            }).catch((error) => {
+
+                error;
+
+                this.status = 'something went wrong with change password';
+
+
+            });
+
+            },
+           
+
+            
 
 
         change_email() {
@@ -111,7 +174,7 @@ import Cookies from 'vue-cookies';
 
                 error;
 
-
+                this.status = 'something went wrong with change email';
 
             });
 
@@ -162,7 +225,8 @@ import Cookies from 'vue-cookies';
             }).catch((error) => {
 
                 error;
-
+                
+                this.status = 'something went wrong with change phone';
             });
 
         },
@@ -209,6 +273,7 @@ import Cookies from 'vue-cookies';
             }).catch((error) => {
 
                 error;
+                this.status = 'something went wrong with change address';
 
             });
 
@@ -231,8 +296,6 @@ import Cookies from 'vue-cookies';
                 url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant`,
 
                 headers: {
-
-                    'x-api-key': `qK2iR1gTkkAjPH0kfGDY`,
 
                     token: restaurant_token,
                 },
@@ -257,7 +320,7 @@ import Cookies from 'vue-cookies';
             }).catch((error) => {
 
                 error;
-
+                this.status = 'something went wrong with change bio';
             });
 
 
@@ -307,7 +370,7 @@ import Cookies from 'vue-cookies';
             }).catch((error) => {
 
                 error;
-
+                this.status = 'something went wrong with change image';
             });
 
 

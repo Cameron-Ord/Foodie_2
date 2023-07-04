@@ -10,6 +10,8 @@
                 <!--calling the delete api on click, requires password typed in field-->
 
             <button @click="delete_profile" class="delete_button">Delete Account</button>
+
+            <p v-if="status !== undefined">{{ status }}</p>
         </div>
         </span>
         
@@ -26,6 +28,8 @@ export default {
     data() {
         return {
 
+            password: undefined,
+            status: undefined
         }
     },
 
@@ -40,6 +44,13 @@ export default {
             //defining the token for the api header//
 
             let client_token = Cookies.get(`client_login_token`);
+
+            this.password =  this.$refs[`delete_account`].value;
+
+            if(this.password === ''){
+
+                this.password = null;
+            }
 
             axios({
 
@@ -57,7 +68,7 @@ export default {
 
                     //getting the typed value//
 
-                    password: this.$refs[`delete_account`].value,
+                    password: this.password
                 }
 
             }).then((response) => {
@@ -66,15 +77,23 @@ export default {
 
                 //deletes your profile, removes cookies, and pushes user to home page.//
 
-                this.$router.push(`/`);
+                if(response['data'][0]['row_count()'] > 0){
+
+                    this.$router.push(`/`);
 
                 Cookies.remove(`client_id`);
 
                 Cookies.remove(`client_login_token`);
 
+                }
+
+                
+
             }).catch((error) => {
 
                 error;
+
+                this.status = 'enter your password to delete your account';
             })
 
 
@@ -122,7 +141,7 @@ export default {
     justify-items: center;
     align-items: center;
     display: grid;
-    grid-template-rows: 5vh 6vh 8vh;
+    grid-template-rows: 5vh 6vh 8vh auto;
 
 }
 
