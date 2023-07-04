@@ -86,7 +86,14 @@ export default {
             this.client_logged_in = false;
             this.partner_logged_in = false;
 
-            this.$router.go('/');
+            if(this.$route.path !== '/'){
+
+                this.$router.push(`/`);
+            }else{
+                this.$router.go();
+            }
+
+     
         },
 
 
