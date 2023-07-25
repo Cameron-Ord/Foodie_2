@@ -38,6 +38,9 @@ export default {
     methods: {
 
 
+        //deletes a profile, requires user input
+
+        //if the text box is an empty string, assigns null
 
         delete_profile() {
 

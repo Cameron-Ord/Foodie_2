@@ -57,6 +57,8 @@ import Cookies from 'vue-cookies';
         
         methods:{
 
+            //gets respective restaurant data based off the ID stored inside a cookie
+
             get_call(){
             let rest_id_value = Cookies.get(`restaurant_id`);
             axios({
@@ -77,6 +79,7 @@ import Cookies from 'vue-cookies';
 
         mounted(){
 
+            //calls function on mount
             this.get_call();
         }
     }

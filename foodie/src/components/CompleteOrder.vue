@@ -16,6 +16,8 @@ import Cookies from 'vue-cookies';
         },
         methods:{
 
+            //completing order based on the order that was clicked
+
             complete_order(details) {
 
             let restaurant_token = Cookies.get(`rest_login_token`);
@@ -30,6 +32,8 @@ import Cookies from 'vue-cookies';
 
             axios({
 
+                //patching table data
+
                 method: `PATCH`,
 
                 url: `${process.env.VUE_APP_BASE_DOMAIN}/api/restaurant-order`,
@@ -40,6 +44,8 @@ import Cookies from 'vue-cookies';
                 },
 
                 data: {
+
+                    //assigning values to order
 
                     order_id: completed_item,
 

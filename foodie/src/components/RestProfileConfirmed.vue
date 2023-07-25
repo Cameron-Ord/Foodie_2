@@ -40,6 +40,8 @@ export default {
 
     methods:{
 
+        //completes an order on click, uses indexing to select the order
+
          complete_order(details) {
 
             let restaurant_token = Cookies.get(`rest_login_token`);
@@ -91,6 +93,8 @@ export default {
         },
 
         get_orders(){
+
+            //gets confirmed orders from the respective restaurant defined by the cookie
         let rest_token = Cookies.get(`rest_login_token`);
 
 

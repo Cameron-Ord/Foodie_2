@@ -33,6 +33,8 @@ import Cookies from 'vue-cookies';
 
             sort_completed(){
     
+                //ordering and sorting orders
+
                 let sorted_orders = [];
 
                 let order_ids = [];
@@ -61,6 +63,8 @@ import Cookies from 'vue-cookies';
             },
 
             get_order(){
+
+                //gets completed orders from client token
 
             let client_token = Cookies.get(`client_login_token`);
 

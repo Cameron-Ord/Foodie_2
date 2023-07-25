@@ -99,6 +99,8 @@ export default {
 
         make_active() {
 
+            //toggles classes for hamburger menu
+
             let menu_btn = document.querySelector(`.hamburger`);
 
             let mobile_menu = document.querySelector(`.mobile_nav`);
@@ -154,6 +156,7 @@ export default {
 
         }
 
+        //getting cart
 
         this.food_cart = Cookies.get(`food_cart`);
       

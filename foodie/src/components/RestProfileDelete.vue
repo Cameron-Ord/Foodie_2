@@ -47,6 +47,8 @@ export default {
 
         delete_account() {
 
+            //deletes account, requires password input and a valid token
+
             let restaurant_token = Cookies.get(`rest_login_token`);
 
             this.password = this.$refs[`delete_acc`][`value`];
@@ -77,6 +79,8 @@ export default {
             }).then((response) => {
 
                 response;
+
+                //if account is successfuly deleted, sends the user to the home page and removes cookies
 
                 if(response['data'][0]['deleted'] !== undefined){
 

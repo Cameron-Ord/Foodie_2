@@ -61,6 +61,7 @@ import Cookies from 'vue-cookies';
 
             delete_item(){
 
+                //deletes cart cookie
 
                 Cookies.remove(`food_cart`);
 
@@ -68,6 +69,12 @@ import Cookies from 'vue-cookies';
 
 
             Order(){
+
+                //sends a client order
+
+                //requires a client token and an id for the restaurant
+
+                //the menu_item_no is equal to the array of ids (product_id)
 
                 let token_var = Cookies.get(`client_login_token`);
 
@@ -100,11 +107,12 @@ import Cookies from 'vue-cookies';
                 }).then((response)=>{
                  
                     response;
-                    
+                    //deletes the cart
                 Cookies.remove(`food_cart`);
 
                 if(menu_item_no !== undefined){
 
+                    //pushes user to account 
                     this.$router.push(`/AccountProfile`);
 
                 }
@@ -131,7 +139,7 @@ import Cookies from 'vue-cookies';
 
             this.shopping_cart_items = Cookies.get(`food_cart`);
            
-        
+            //assigning an array of item ids from the food cart
 
             for(let i = 0; i < this.shopping_cart_items.length; i++){
 

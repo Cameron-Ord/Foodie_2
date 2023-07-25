@@ -11,6 +11,8 @@
 
                 <h4>Enter your information</h4>
 
+                <!--user inputs-->
+
                 <input placeholder="your email" type="value" ref="email_input">
                 <input placeholder="your name" type="value" ref="name_input">
                 <input placeholder="your last name" type="value" ref="last_name_input">
@@ -63,6 +65,7 @@ export default {
 
         sign_up() {
 
+            //signs a user up, all info is required.
 
             axios({
 
@@ -106,6 +109,8 @@ export default {
                 Cookies.remove(`restaurant_id`);
 
                 Cookies.remove(`food_cart`);
+
+                //on login success, pushes user to front page
 
                 if((response['data'][0]['client_id'] !== null) || (response['data'][0]['client_id'] !== undefined)){
 

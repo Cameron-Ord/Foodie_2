@@ -6,6 +6,8 @@
 
             <h1>Pending Orders:</h1>
 
+        
+
         <div class="incomp_order" v-for="(order, i) in sort_incomplete_orders" :key="i">
 
             <h1>ORDER: {{ order[0][`order_id`] }}</h1>
@@ -39,6 +41,9 @@ import Cookies from 'vue-cookies';
 
         sort_incomplete(){
 
+
+            //sorting orders
+
             let sorted_orders = [];
 
             let order_ids = [];
@@ -70,6 +75,7 @@ import Cookies from 'vue-cookies';
     
         get_order(){
 
+            //gets incomplete orders associated with a client 
 
         let client_token = Cookies.get(`client_login_token`);
 
@@ -106,9 +112,6 @@ import Cookies from 'vue-cookies';
                 this.unsort_incomplete_orders.push(response[`data`][i]);
 
             
-                
-                
-        
             }
 
             this.sort_incomplete();

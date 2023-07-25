@@ -46,6 +46,8 @@ import Cookies from 'vue-cookies';
 
             confirm_order(details) {
 
+                //confirms an order, uses indexing to select the order clicked
+
             let restaurant_token = Cookies.get(`rest_login_token`);
 
             this.$refs[`confirmed_order`] = details.currentTarget;
@@ -67,6 +69,8 @@ import Cookies from 'vue-cookies';
                 },
 
                 data: {
+
+                    //updates info
 
                     order_id: confirmed_item,
 
@@ -90,6 +94,9 @@ import Cookies from 'vue-cookies';
 
 
         get_orders(){
+
+            //gets unconfirmed orders associated with a restaurant
+
         let rest_token = Cookies.get(`rest_login_token`);
 
         axios({
@@ -144,6 +151,8 @@ import Cookies from 'vue-cookies';
 
         sort_unconfirmed(){
 
+            //sorts the unconfirmed orders
+
             let sorted_orders = [];
 
             let order_ids = [];
@@ -171,6 +180,8 @@ import Cookies from 'vue-cookies';
         },
 
         mounted(){
+
+            //calls function on mount
             this.get_orders()
 
         }

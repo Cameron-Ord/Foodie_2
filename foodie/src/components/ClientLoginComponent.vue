@@ -59,6 +59,8 @@ import Cookies from 'vue-cookies';
 
                 axios({
 
+                    //logging in from info from text boxes
+
                     method: `POST`,
 
                     url: `${process.env.VUE_APP_BASE_DOMAIN}/api/client-login`,

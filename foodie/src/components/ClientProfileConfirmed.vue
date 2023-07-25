@@ -37,11 +37,14 @@ import Cookies from 'vue-cookies';
         mounted(){
             this.get_order();
 
+            //function call on mount
         },
 
         methods:{
 
             sort_confirmed(){
+
+                //ordering and sorting orders
 
             let sorted_orders = [];
 
@@ -74,6 +77,7 @@ import Cookies from 'vue-cookies';
     
             get_order(){
 
+                //gets confirmed orders from client token
 
             let client_token = Cookies.get(`client_login_token`);
 

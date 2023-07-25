@@ -53,6 +53,8 @@ import Cookies from 'vue-cookies';
         methods:{
 
             get_client(){
+
+                //loads profile info based on client login token and ID if it is not undefined
                 
                 let client_token = Cookies.get(`client_login_token`);
 
@@ -80,6 +82,8 @@ import Cookies from 'vue-cookies';
                     }).then((response) => {
 
                         response;
+
+                        //storing data in a variable
                         this.client_data_holder = response[`data`][0];
 
                     }).catch((error) => {

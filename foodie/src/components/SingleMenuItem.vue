@@ -129,6 +129,12 @@ export default {
 
         },
 
+        //editing account information
+
+        //assigns empty strings sent from input tags to null
+
+        
+
         delete_product(details) {
 
 

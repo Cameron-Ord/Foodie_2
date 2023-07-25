@@ -30,9 +30,12 @@ import Cookies from 'vue-cookies';
 
             this.get_orders();
 
+            //calls function on mount
         },
 
         methods:{
+
+            //gets completed orders for a restaurant 
 
             get_orders(){
                  let rest_token = Cookies.get(`rest_login_token`);
@@ -84,6 +87,8 @@ import Cookies from 'vue-cookies';
             },
 
         sort_completed(){
+
+            //sorting orders
 
             let sorted_orders = [];
 

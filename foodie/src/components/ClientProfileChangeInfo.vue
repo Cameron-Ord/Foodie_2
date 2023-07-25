@@ -7,6 +7,10 @@
         <h1>Edit your profile:</h1>
         </span>
 
+        <!--displaying html-->
+
+        <!--v-ifs check for if variables are specifically defined to display a dynamic message-->
+
         <div>
         <p>Change email:</p>
         <input placeholder="enter a new email" type="text" ref="email_change">
@@ -70,6 +74,13 @@ import Cookies from 'vue-cookies';
         methods:{
 
 
+            //apis for changing profile information
+
+            //uses cookies and input tags to gather required information. 
+
+            //if the replacement info sent is equal to an empty string, assigns it to null
+
+            //each call has dynamic error responses
 
         change_email() {
 
@@ -122,6 +133,7 @@ import Cookies from 'vue-cookies';
         },
 
         change_username() {
+
             let client_token = Cookies.get(`client_login_token`);
 
             this.new_user = this.$refs[`username_change`].value;

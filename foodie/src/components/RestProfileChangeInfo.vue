@@ -76,6 +76,11 @@ import Cookies from 'vue-cookies';
         methods:{
 
 
+            //info change functions for restaurant.takes rest token and input from boxes using refs
+
+            //if the info from the text box is an empty strings, assigns null
+
+            //dynamically sends an error or success message based on api response
 
         change_password() {
 
